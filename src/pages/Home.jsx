@@ -4,11 +4,32 @@ import AnimatedSection from '../components/AnimatedSection'
 import SubjectCard from '../components/SubjectCard'
 import InstructorCard from '../components/InstructorCard'
 import TestimonialCarousel from '../components/TestimonialCarousel'
+import { Link } from 'react-router-dom'
 
 export default function Home(){
   return (
     <div>
-      <Hero />
+      {/* Hero wrapper: overflow-hidden to clip the circle; Hero kept above via z-10 */}
+      <div className="relative overflow-hidden">
+        {/* decorative circle partially outside top-right, placed behind Hero */}
+        <div
+          className="absolute -top-24 -right-24 w-96 h-96 rounded-full overflow-hidden pointer-events-none sm:-top-32 sm:-right-32 sm:w-96 sm:h-96 opacity-100 mix-blend-normal bg-transparent animate-none"
+          style={{ animation: 'none', zIndex: 30 }}
+          aria-hidden="true"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80"
+            alt=""
+            loading="lazy"
+            draggable="false"
+            className="w-full h-full object-cover brightness-100 contrast-100 saturate-100 filter-none animate-none"
+            style={{ animation: 'none' }}
+          />
+        </div>
+        <div className="relative z-10">
+          <Hero />
+        </div>
+      </div>
 
       <AnimatedSection className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-semibold text-slate-900">Our Approach</h2>
