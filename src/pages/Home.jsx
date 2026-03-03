@@ -5,71 +5,99 @@ import SubjectCard from '../components/SubjectCard'
 import InstructorCard from '../components/InstructorCard'
 import TestimonialCarousel from '../components/TestimonialCarousel'
 import { Link } from 'react-router-dom'
+import whoImg from '../assets/hero-2.jpg'
 
 export default function Home(){
   return (
     <div>
-      {/* Hero wrapper: overflow-hidden to clip the circle; Hero kept above via z-10 */}
+      {/* Hero wrapper: overflow-hidden so the right-side image is clipped; Hero content stays above */}
       <div className="relative overflow-hidden">
-        {/* decorative circle partially outside top-right, placed behind Hero */}
+        {/* right-side image: full hero height, positioned above background but below hero content */}
         <div
-          className="absolute -top-24 -right-24 w-96 h-96 rounded-full overflow-hidden pointer-events-none sm:-top-32 sm:-right-32 sm:w-96 sm:h-96 opacity-100 mix-blend-normal bg-transparent animate-none"
-          style={{ animation: 'none', zIndex: 30 }}
+          className="absolute top-0 right-0 h-full w-1/2 max-w-[560px] pointer-events-none overflow-hidden animate-none"
+          style={{ zIndex: 9, animation: 'none' }}
           aria-hidden="true"
         >
           <img
-            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=80"
             alt=""
             loading="lazy"
             draggable="false"
-            className="w-full h-full object-cover brightness-100 contrast-100 saturate-100 filter-none animate-none"
+            className="w-full h-full object-cover"
             style={{ animation: 'none' }}
           />
         </div>
+
         <div className="relative z-10">
           <Hero />
         </div>
       </div>
 
       <AnimatedSection className="container mx-auto px-4 py-12">
-        <h2 className="text-2xl font-semibold text-slate-900">Our Approach</h2>
-        <p className="mt-3 text-slate-600 max-w-3xl">We combine focused lessons, regular assessments, and mentorship so learners get the support and structure they need to improve their results.</p>
+        <div className="bg-white rounded-2xl p-6 md:p-10">
+          <div className="md:flex md:items-center md:gap-8">
+            <div className="md:w-6/12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 serif-heading">Who We Are</h2>
+              <p className="mt-4 text-slate-700 leading-relaxed font-sans">We combine focused lessons, regular assessments, and mentorship so learners get the support and structure they need to improve their results. Our experienced tutors focus on practical exam technique, personalised learning plans and building confidence.</p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 flex gap-4 items-start">
-            <div className="shrink-0 w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7H3v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-lg font-semibold">Small Classes</div>
-              <p className="mt-2 text-slate-500 text-sm">Individual attention and tailored pacing for each learner.</p>
-            </div>
-          </div>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-indigo-600">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-800 font-sans">Small, focused classes</div>
+                    <div className="text-sm text-slate-600 font-sans">Individual attention and tailored pacing for each learner.</div>
+                  </div>
+                </div>
 
-          <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 flex gap-4 items-start">
-            <div className="shrink-0 w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m2 0h-8" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-lg font-semibold">Exam Preparation</div>
-              <p className="mt-2 text-slate-500 text-sm">Mock exams, past-paper practice and exam technique coaching.</p>
-            </div>
-          </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-indigo-600">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-800 font-sans">Exam-focused teaching</div>
+                    <div className="text-sm text-slate-600 font-sans">Mock exams, past-paper practice and exam strategy.</div>
+                  </div>
+                </div>
 
-          <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 flex gap-4 items-start">
-            <div className="shrink-0 w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 8a6 6 0 00-12 0v6a6 6 0 0012 0V8z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v.01" />
-              </svg>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-indigo-600">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-800 font-sans">Holistic support</div>
+                    <div className="text-sm text-slate-600 font-sans">Mentoring, counselling and life skills for sustained success.</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-indigo-600">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 7h18M12 3v18" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-800 font-sans">Proven results</div>
+                    <div className="text-sm text-slate-600 font-sans">Consistent improvements and strong pass rates among learners.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/admissions" className="inline-flex items-center px-5 py-3 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700">Apply Now</Link>
+                <Link to="/about" className="inline-flex items-center px-5 py-3 border border-indigo-200 text-indigo-600 rounded-md hover:bg-indigo-50">Learn more</Link>
+              </div>
             </div>
-            <div>
-              <div className="text-lg font-semibold">Support Services</div>
-              <p className="mt-2 text-slate-500 text-sm">Counselling, mentoring and life skills to support learners holistically.</p>
+
+            <div className="md:w-6/12 mt-6 md:mt-0">
+              <div className="relative rounded-lg overflow-hidden">
+                <img
+                  src={whoImg}
+                  alt="Students in class"
+                  className="w-full h-80 md:h-96 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" aria-hidden="true" />
+              </div>
             </div>
           </div>
         </div>
@@ -139,8 +167,8 @@ export default function Home(){
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <div className="bg-indigo-600 text-white rounded-2xl p-8 text-center shadow-lg">
+      <AnimatedSection className="container mx-auto px-4 py-12 z-20">
+        <div className="bg-indigo-600 text-white rounded-2xl p-8 text-center shadow-lg z-20">
           <h3 className="text-2xl font-semibold">Ready to take the next step?</h3>
           <p className="mt-2 max-w-2xl mx-auto">Apply now for the upcoming intake or contact us for more information — our team will support your application.</p>
           <div className="mt-6 flex justify-center gap-4">
