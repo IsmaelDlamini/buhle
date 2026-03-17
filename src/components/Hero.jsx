@@ -35,78 +35,90 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
-      {/* Slides */}
-      {slides.map((src, i) => (
-        <img
+  <section className="relative h-[70vh] md:h-[85vh] overflow-hidden">
+
+    {/* Slides */}
+    {slides.map((src, i) => (
+      <img
+        key={i}
+        src={src}
+        alt={`slide-${i}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity object-top duration-1000 ${
+          i === current ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
+    ))}
+
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-black/50 z-10" />
+
+    {/* Top navigation area */}
+    <div className="absolute top-0 left-0 w-full z-30">
+      {/* <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={site_logo}
+            alt="Site logo"
+            className="w-20 md:w-24 object-contain"
+          />
+        </Link>
+
+        <Link
+          to="/admissions"
+          className="hidden md:inline-flex bg-white text-secondary px-5 py-2 rounded-md font-poppins text-sm hover:opacity-90 transition"
+        >
+          Apply Now
+        </Link>
+      </div> */}
+    </div>
+
+    {/* Hero content */}
+    <div className="relative z-20 h-full flex items-center">
+      <div className="container mx-auto px-4 text-center max-w-3xl">
+
+        <h1 className="font-zuume text-4xl md:text-6xl text-white leading-tight">
+          Empowering Learners <br /> To Reach Their Potential
+        </h1>
+
+        <p className="mt-6 text-white/90 font-poppins text-sm md:text-lg">
+          Structured academic support, experienced tutors, and focused exam
+          preparation designed to help students succeed in Mathematics and
+          other key subjects.
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+
+          <Link
+            to="/admissions"
+            className="bg-secondary px-7 py-3 text-white rounded-lg font-poppins hover:opacity-90 transition"
+          >
+            Apply Now
+          </Link>
+
+          <Link
+            to="/about"
+            className="border border-white text-white px-7 py-3 rounded-lg font-poppins hover:bg-white hover:text-secondary transition"
+          >
+            Learn More
+          </Link>
+
+        </div>
+      </div>
+    </div>
+
+    {/* Slider dots */}
+    <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
+      {slides.map((_, i) => (
+        <button
           key={i}
-          src={src}
-          alt={`slide-${i}`}
-          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          onClick={() => goTo(i)}
+          className={`w-3 h-3 rounded-full transition ${
+            i === current ? "bg-white" : "bg-white/40"
+          }`}
         />
       ))}
+    </div>
 
-      {/* dimming overlay (above images, below content/banner) */}
-      <div className="absolute inset-0 bg-black/40 z-10" aria-hidden="true" />
-
-      {/* Top overlay header */}
-      <div className="bg-white/80 absolute top-0 left-0 px-4 py-4 md:py-6 w-full z-30">
-        <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-4">
-          <div className="md:w-1/3">
-            <p className="text-xs text-neutral-600 uppercase tracking-wider">Welcome to</p>
-            <h1 className="text-lg md:text-2xl font-extrabold text-slate-900">NKOMAZI FINISHING SCHOOL</h1>
-            <p className="mt-2 text-sm text-slate-600">Empowering learners to reach their full potential.</p>
-
-            <div className="mt-3 space-y-2 text-sm text-slate-700">
-             
-             
-            </div>
-          </div>
-
-         
-
-          <div className="md:w-1/3 flex items-center justify-end gap-4">
-            <Link to="/" className="flex items-center gap-3">
-              <img src={site_logo} alt="Site logo" className="w-20 h-auto md:w-24 object-contain" />
-            </Link>
-
-           
-          </div>
-        </div>
-      </div>
-
-      {/* Center content */}
-      {/* <div className="absolute inset-0 flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl text-white drop-shadow-lg">
-            <h2 className="text-3xl md:text-5xl font-extrabold">Quality learning. Better futures.</h2>
-            <p className="mt-4 text-sm md:text-base text-white/90">Small classes, personalised attention and exam-focused coaching.</p>
-            <div className="mt-6 flex gap-3">
-              <Link to="/admissions" className="px-5 py-3 bg-blue-600 text-white rounded-md">Apply Now</Link>
-              <Link to="/contact" className="px-4 py-3 border border-white/30 text-white rounded-md">Contact Us</Link>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      
-
-      {/* Controls: prev/next and dots */}
-      <div className="absolute inset-0 flex items-end justify-center pb-6 z-20 pointer-events-none">
-        <div className="flex items-center gap-4 pointer-events-auto">
-          {/* <button onClick={prev} className="p-2 bg-white/80 rounded-full shadow-md">
-            ‹
-          </button> */}
-          <div className="flex items-center gap-2">
-            {slides.map((_, i) => (
-              <button key={i} onClick={() => goTo(i)} className={`w-3 h-3 rounded-full ${i === current ? 'bg-white' : 'bg-white/50'}`} />
-            ))}
-          </div>
-          {/* <button onClick={next} className="p-2 bg-white/80 rounded-full shadow-md">
-            ›
-          </button> */}
-        </div>
-      </div>
-    </section>
-  )
+  </section>
+)
 }

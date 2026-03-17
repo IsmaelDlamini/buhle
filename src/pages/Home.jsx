@@ -7,10 +7,29 @@ import TestimonialCarousel from '../components/TestimonialCarousel'
 import { Link } from 'react-router-dom'
 import whoImg from '../assets/hero-2.jpg'
 import { useState, useEffect } from 'react'
+import cert_image from "../assets/cert-image.jpg";
 
 export default function Home(){
 
+const [studentStories] = useState([
+  {
+    image: cert_image,
+    name: "Rethabile Bohlale",
+    text: "Good Afternoon ma'am. Thank you so much for helping me achieve my goal. I was able to move from 40% to 51% in Mathematics in a very short period. I did not think I was going to make it because Maths is not really my strong suit, but you made it easy for me to understand the topics and that helped me during practice and in the exam. You sharpened my mind and gave me confidence. No words can truly express my gratitude.",
+  },
+  {
+    image: cert_image,
+    name: "John Doe",
+    text: "EMASA helped me become more confident in Mathematics. The lessons were clear, supportive, and focused on helping me improve step by step.",
+  },
+  {
+    image: cert_image,
+    name: "Jane Doe",
+    text: "The extra support and guidance made a real difference in my studies. I became more disciplined and started seeing better results.",
+  },
+]);
 
+const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   
   const faqs = [
     {
@@ -96,126 +115,444 @@ export default function Home(){
         </div>
       </div>
 
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <div className="bg-white rounded-2xl p-6 md:p-10">
-          <div className="md:flex md:items-center md:gap-8">
-            <div className="md:w-6/12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 serif-heading">Who We Are</h2>
-              <p className="mt-4 text-slate-700 leading-relaxed font-sans">We combine focused lessons, regular assessments, and mentorship so learners get the support and structure they need to improve their results. Our experienced tutors focus on practical exam technique, personalised learning plans and building confidence.</p>
 
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-indigo-600">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-800 font-sans">Small, focused classes</div>
-                    <div className="text-sm text-slate-600 font-sans">Individual attention and tailored pacing for each learner.</div>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-indigo-600">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-800 font-sans">Exam-focused teaching</div>
-                    <div className="text-sm text-slate-600 font-sans">Mock exams, past-paper practice and exam strategy.</div>
-                  </div>
-                </div>
+      <section className="relative -mt-16 z-20 px-4">
+  <div className="container mx-auto">
+    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 grid grid-cols-2 md:grid-cols-4 overflow-hidden">
 
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-indigo-600">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-800 font-sans">Holistic support</div>
-                    <div className="text-sm text-slate-600 font-sans">Mentoring, counselling and life skills for sustained success.</div>
-                  </div>
-                </div>
+      <div className="p-6 text-center border-b md:border-b-0 md:border-r border-slate-100">
+        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
+          500+
+        </div>
+        <p className="text-sm text-slate-600 font-poppins mt-1">
+          Students Supported
+        </p>
+      </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-indigo-600">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 7h18M12 3v18" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-800 font-sans">Proven results</div>
-                    <div className="text-sm text-slate-600 font-sans">Consistent improvements and strong pass rates among learners.</div>
-                  </div>
-                </div>
-              </div>
+      <div className="p-6 text-center border-b md:border-b-0 md:border-r border-slate-100">
+        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
+          90%
+        </div>
+        <p className="text-sm text-slate-600 font-poppins mt-1">
+          Pass Rate
+        </p>
+      </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/admissions" className="inline-flex items-center px-5 py-3 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700">Apply Now</Link>
-                <Link to="/about" className="inline-flex items-center px-5 py-3 border border-indigo-200 text-indigo-600 rounded-md hover:bg-indigo-50">Learn more</Link>
-              </div>
+      <div className="p-6 text-center md:border-r border-slate-100">
+        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
+          Grade 1–12
+        </div>
+        <p className="text-sm text-slate-600 font-poppins mt-1">
+          Academic Support
+        </p>
+      </div>
+
+      <div className="p-6 text-center">
+        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
+          10+
+        </div>
+        <p className="text-sm text-slate-600 font-poppins mt-1">
+          Years Experience
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<AnimatedSection className="container mx-auto px-4 py-20">
+  <div className="grid md:grid-cols-2 gap-12 items-center">
+
+    {/* LEFT CONTENT */}
+    <div>
+      <h2 className="font-zuume text-4xl md:text-5xl text-secondary mb-6">
+        Who We Are
+      </h2>
+
+      <p className="font-poppins text-slate-600 leading-relaxed mb-8">
+        EMASA Academy provides structured academic support designed to help
+        learners build confidence, improve their understanding, and achieve
+        better results in Mathematics and other key subjects. Our approach
+        combines focused lessons, consistent assessments, and mentorship so
+        every learner receives the attention they need to grow academically.
+      </p>
+
+      {/* FEATURES */}
+      <div className="grid sm:grid-cols-2 gap-6">
+
+        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
+          <h3 className="font-semibold font-poppins text-secondary mb-1">
+            Small Focused Classes
+          </h3>
+          <p className="text-sm text-slate-500">
+            Smaller groups allow our tutors to give each learner the attention
+            they deserve.
+          </p>
+        </div>
+
+        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
+          <h3 className="font-semibold font-poppins text-secondary mb-1">
+            Exam Preparation
+          </h3>
+          <p className="text-sm text-slate-500">
+            Learners practice with past papers and exam strategies that build
+            confidence.
+          </p>
+        </div>
+
+        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
+          <h3 className="font-semibold font-poppins text-secondary mb-1">
+            Personal Mentorship
+          </h3>
+          <p className="text-sm text-slate-500">
+            We guide learners beyond academics by building discipline and
+            motivation.
+          </p>
+        </div>
+
+        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
+          <h3 className="font-semibold font-poppins text-secondary mb-1">
+            Proven Results
+          </h3>
+          <p className="text-sm text-slate-500">
+            Many learners improve their marks significantly after joining our
+            programme.
+          </p>
+        </div>
+
+      </div>
+
+      {/* BUTTONS */}
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link
+          to="/admissions"
+          className="bg-secondary text-white px-6 py-3 rounded-lg font-poppins hover:opacity-90 transition"
+        >
+          Apply Now
+        </Link>
+
+        <Link
+          to="/about"
+          className="border border-secondary text-secondary px-6 py-3 rounded-lg font-poppins hover:bg-secondary hover:text-white transition"
+        >
+          Learn More
+        </Link>
+      </div>
+    </div>
+
+    {/* RIGHT IMAGE */}
+    <div className="relative">
+      <img
+        src={whoImg}
+        alt="Students learning"
+        className="rounded-2xl object-cover w-full h-[420px]"
+        loading="lazy"
+      />
+
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent" />
+    </div>
+
+  </div>
+</AnimatedSection>
+
+
+
+
+
+
+    
+ <section className="py-24 bg-grey">
+  <div className="container mx-auto px-4">
+
+    {/* Heading */}
+    <div className="text-center max-w-2xl mx-auto">
+      <p className="font-poppins text-sm uppercase tracking-[0.2em] text-secondary/70">
+        Our Programmes
+      </p>
+
+      <h2 className="mt-3 font-zuume text-4xl md:text-5xl text-secondary">
+        What We Offer
+      </h2>
+
+      <p className="mt-4 text-slate-600 font-poppins text-sm md:text-base">
+        Structured academic support designed to help learners build confidence,
+        improve results, and succeed in their studies.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid gap-6 mt-14 md:grid-cols-3">
+
+      {/* Card 1 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
+
+        <h3 className="font-poppins text-lg font-semibold text-secondary">
+          Mathematics
+        </h3>
+
+        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+          Build strong foundations, improve problem-solving skills, and prepare
+          effectively for exams with structured lessons.
+        </p>
+
+        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
+          Learn more →
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
+
+        <h3 className="font-poppins text-lg font-semibold text-secondary">
+          Physical Sciences
+        </h3>
+
+        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+          Simplify complex concepts and develop a clear understanding through
+          practical learning and exam-focused preparation.
+        </p>
+
+        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
+          Learn more →
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
+
+        <h3 className="font-poppins text-lg font-semibold text-secondary">
+          Primary Support
+        </h3>
+
+        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+          Help younger learners build confidence and strong academic habits
+          early in their education journey.
+        </p>
+
+        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
+          Learn more →
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section className="bg-white py-24">
+  <div className="container mx-auto px-4">
+    <AnimatedSection>
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
+          Success Stories
+        </p>
+        <h2 className="mt-3 font-zuume text-5xl md:text-6xl text-secondary">
+          Our Student Stories
+        </h2>
+        <p className="mt-4 font-poppins text-sm md:text-base text-slate-600">
+          Real experiences from learners who have grown in confidence, improved
+          their understanding, and achieved better academic results with EMASA.
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <div className="mx-auto mt-14 max-w-6xl">
+      <AnimatedSection>
+        <div className="grid items-stretch gap-8 overflow-hidden rounded-[28px] border border-border bg-grey/40 p-4 md:grid-cols-[0.95fr_1.05fr] md:p-6">
+          <div className="overflow-hidden rounded-2xl bg-white">
+            <img
+              src={studentStories[currentStoryIndex].image}
+              alt={studentStories[currentStoryIndex].name}
+              className="h-[320px] w-full object-cover md:h-full md:min-h-[500px]"
+            />
+          </div>
+
+          <div className="flex flex-col justify-between rounded-2xl bg-white p-6 md:p-10 shadow-sm">
+            <div>
+              <span className="inline-flex rounded-full bg-secondary/8 px-4 py-1.5 font-poppins text-xs font-medium text-secondary">
+                Student Testimonial
+              </span>
+
+              <p className="mt-6 font-poppins text-sm leading-7 text-slate-600 md:text-[15px] md:leading-8">
+                “{studentStories[currentStoryIndex].text}”
+              </p>
             </div>
 
-            <div className="md:w-6/12 mt-6 md:mt-0">
-              <div className="relative rounded-lg overflow-hidden">
-                <img
-                  src={whoImg}
-                  alt="Students in class"
-                  className="w-full h-80 md:h-96 object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" aria-hidden="true" />
-              </div>
+            <div className="mt-8 border-t border-border pt-6">
+              <h3 className="font-poppins text-lg font-semibold text-secondary">
+                {studentStories[currentStoryIndex].name}
+              </h3>
+              <p className="mt-1 font-poppins text-sm text-slate-500">
+                EMASA Student
+              </p>
             </div>
           </div>
         </div>
       </AnimatedSection>
 
-    
-      
+      <AnimatedSection>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {studentStories.map((story, index) => {
+            const isActive = index === currentStoryIndex;
+
+            return (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setCurrentStoryIndex(index)}
+                className={`rounded-full px-4 py-2 font-poppins text-sm transition ${
+                  isActive
+                    ? "bg-secondary text-white shadow-sm"
+                    : "bg-white text-slate-600 border border-border hover:border-secondary/30 hover:text-secondary"
+                }`}
+                aria-label={`Show story from ${story.name}`}
+              >
+                {story.name}
+              </button>
+            );
+          })}
+        </div>
+      </AnimatedSection>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section className="py-20 bg-secondary text-white text-center">
+  <div className="container mx-auto px-4 max-w-2xl">
+    <h2 className="font-zuume text-4xl md:text-5xl">
+      Ready to Help Your Child Succeed?
+    </h2>
+
+    <p className="mt-4 font-poppins text-white/80">
+      Join EMASA Academy today and give your child the academic support they deserve.
+    </p>
+
+    <div className="mt-8">
+      <Link
+        to="/admissions"
+        className="bg-white text-secondary px-8 py-3 rounded-lg font-poppins hover:opacity-90 transition"
+      >
+        Apply Now
+      </Link>
+    </div>
+  </div>
+</section>
+
+
+
+<section className="py-20 bg-grey">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-3 gap-8 text-center">
+
+      <div>
+        <h3 className="font-semibold text-secondary">Personal Attention</h3>
+        <p className="text-sm text-slate-600 mt-2">
+          Every learner gets focused support.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-secondary">Exam Results</h3>
+        <p className="text-sm text-slate-600 mt-2">
+          Proven improvement in marks.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-secondary">Dedicated Mentorship</h3>
+        <p className="text-sm text-slate-600 mt-2">
+          We support learners beyond academics.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
     
 
-    <section className="bg-secondaryColor py-10">
-          <AnimatedSection>
-            <h2 className="text-center font-zuume text-5xl font-extrabold text-white mx-auto px-10 pb-10 md:text-6xl">
-              FREQUENTLY ASKED QUESTIONS
-            </h2>
-          </AnimatedSection>
+   <section className="bg-secondary py-20">
+  <div className="container mx-auto px-4">
+    <AnimatedSection>
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+          Need Help?
+        </p>
+        <h2 className="mt-3 font-zuume text-5xl md:text-6xl text-white">
+          Frequently Asked Questions
+        </h2>
+        <p className="mt-4 font-poppins text-sm md:text-base text-white/75">
+          Everything you may want to know about our lessons, support, and how learners grow with EMASA Academy.
+        </p>
+      </div>
+    </AnimatedSection>
 
-          <div className="max-w-2xl  bg-secondaryColor text-white font-poppins font-bold mx-5 border-t-[0.1px] border-[#8A8A8A4D] text-sm md:max-w-[900px] md:mx-auto ">
-            {faqs.map((faq, index) => (
-              <AnimatedSection>
-                <div
-                  key={index}
-                  className="border-b-[0.1px] border-[#8A8A8A4D] py-4 px-3 w-[95%] md:w-full flex justify-between items-center"
+    <div className="mx-auto mt-12 max-w-4xl space-y-4">
+      {faqs.map((faq, index) => {
+        const isOpen = openIndex === index;
+
+        return (
+          <AnimatedSection key={index}>
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition duration-300 hover:bg-white/10">
+              <button
+                type="button"
+                onClick={() => toggleFAQ(index)}
+                className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6"
+                aria-expanded={isOpen}
+              >
+                <span className="font-poppins text-sm md:text-base font-semibold text-white pr-4">
+                  {faq.question}
+                </span>
+
+                <span
+                  className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white text-xl leading-none transition-transform duration-300 ${
+                    isOpen ? "rotate-45" : "rotate-0"
+                  }`}
                 >
-                  <div>
-                    <button
-                      className="w-full text-left py-3 focus:outline-none"
-                      onClick={() => toggleFAQ(index)}
-                    >
-                      {faq.question}
-                    </button>
-                    {openIndex === index && (
-                      <p className="py-2 text-[#DDDCFF] font-light">
-                        {faq.answer}
-                      </p>
-                    )}
-                  </div>
+                  +
+                </span>
+              </button>
 
-                  <div
-                    className="font-poppins font-light rounded-full bg-white cursor-pointer text-secondaryColor  flex items-center justify-center size-4 flex-grow-0 flex-shrink-0"
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <p className="text-xs">
-                      {openIndex === null && index === 0
-                        ? "+"
-                        : openIndex === index
-                        ? "-"
-                        : "+"}
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-5 pb-5 md:px-6 md:pb-6">
+                    <p className="font-poppins text-sm md:text-[15px] leading-7 text-white/75">
+                      {faq.answer}
                     </p>
                   </div>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </section>
+              </div>
+            </div>
+          </AnimatedSection>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
     </div>
   )
