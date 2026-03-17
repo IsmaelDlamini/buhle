@@ -141,7 +141,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
       <div className="p-6 text-center md:border-r border-slate-100">
         <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
-          Grade 1–12
+          Grade 12
         </div>
         <p className="text-sm text-slate-600 font-poppins mt-1">
           Academic Support
