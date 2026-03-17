@@ -6,8 +6,71 @@ import InstructorCard from '../components/InstructorCard'
 import TestimonialCarousel from '../components/TestimonialCarousel'
 import { Link } from 'react-router-dom'
 import whoImg from '../assets/hero-2.jpg'
+import { useState, useEffect } from 'react'
 
 export default function Home(){
+
+
+  
+  const faqs = [
+    {
+      question: "How do your students generally perform at EMASA?",
+      answer:
+        "Our students who commit themselves not only in the extra lessons but also with the homework given generally perform well. For your child to perform well at EMASA, they have to commit to coming to the lessons and practicing at home with the resources given. ",
+    },
+    {
+      question: "What age groups or grades does EMASA cater for?",
+      answer:
+        "We cater for students from grade 1 until matric as well as first and second year tertiary students with math and physics holiday lessons.",
+    },
+    {
+      question: "Does EMASA conduct 1-on-1 lessons?",
+      answer:
+        "We generally work in groups but upon identifying kids who struggle to keep up with the group, we offer additional 1-on-1 sessions for maths on weekends or early hours before school.",
+    },
+
+    {
+      question: "How soon will I see improvement in my child’s marks?",
+      answer:
+        "The improvement of learners largely depends on the skill level of the child put together with how many hours they devote to the extra classes as well as additional practicing. Some improve after 1 term, whilst some may take longer.",
+    },
+
+    {
+      question:
+        "What makes EMASA Academy different from other tutoring services?",
+      answer:
+        "We go above and beyond by working overtime for our students. at no extra costs. This means that we let our students call should they need additional explaining or assistance with their work. We are passionate about knowing our scholars on a personal level in order to better understand how they can be helped. We spend time teaching our students to be disciplined  not only when dealing with Math but also when dealing with life and growth.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+    },
+  ];
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const [navBarOpen, setNavBarOpen] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(
+    sessionStorage.getItem("loadedEmasa") == null ? true : false
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      sessionStorage.setItem("loadedEmasa", "loaded");
+    }, 6000);
+  }, []);
+
+
   return (
     <div>
       {/* Hero wrapper: overflow-hidden so the right-side image is clipped; Hero content stays above */}
@@ -103,80 +166,57 @@ export default function Home(){
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <h3 className="text-xl font-semibold text-slate-900">Popular Subjects</h3>
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            {name:'Mathematics',desc:'Algebra, calculus and exam practice.'},
-            {name:'Physical Sciences',desc:'Mechanics, chemistry and labs.'},
-            {name:'Life Sciences',desc:'Biology with experiments and theory.'},
-            {name:'English',desc:'Comprehension, literature and writing.'},
-            {name:'Geography',desc:'Physical & human geography modules.'},
-            {name:'Accounting',desc:'Fundamentals and past-paper practice.'}
-          ].map((s) => (
-            <SubjectCard key={s.name} name={s.name} description={s.desc} />
-          ))}
-        </div>
-      </AnimatedSection>
+    
+      
 
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <div className="bg-gradient-to-r from-white to-slate-50 rounded-2xl p-8 shadow-sm">
-          <h3 className="text-2xl font-semibold text-slate-900">By the numbers</h3>
-          <p className="mt-2 text-slate-600">A snapshot of our impact and outcomes.</p>
+    
 
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-xl text-center shadow">
-              <div className="text-3xl font-bold text-indigo-600">95%</div>
-              <div className="mt-1 text-sm text-slate-500">Pass rate among supported learners</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl text-center shadow">
-              <div className="text-3xl font-bold text-indigo-600">12:1</div>
-              <div className="mt-1 text-sm text-slate-500">Average class size</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl text-center shadow">
-              <div className="text-3xl font-bold text-indigo-600">1,200+</div>
-              <div className="mt-1 text-sm text-slate-500">Learners coached since 2018</div>
-            </div>
+    <section className="bg-secondaryColor py-10">
+          <AnimatedSection>
+            <h2 className="text-center font-zuume text-5xl font-extrabold text-white mx-auto px-10 pb-10 md:text-6xl">
+              FREQUENTLY ASKED QUESTIONS
+            </h2>
+          </AnimatedSection>
+
+          <div className="max-w-2xl  bg-secondaryColor text-white font-poppins font-bold mx-5 border-t-[0.1px] border-[#8A8A8A4D] text-sm md:max-w-[900px] md:mx-auto ">
+            {faqs.map((faq, index) => (
+              <AnimatedSection>
+                <div
+                  key={index}
+                  className="border-b-[0.1px] border-[#8A8A8A4D] py-4 px-3 w-[95%] md:w-full flex justify-between items-center"
+                >
+                  <div>
+                    <button
+                      className="w-full text-left py-3 focus:outline-none"
+                      onClick={() => toggleFAQ(index)}
+                    >
+                      {faq.question}
+                    </button>
+                    {openIndex === index && (
+                      <p className="py-2 text-[#DDDCFF] font-light">
+                        {faq.answer}
+                      </p>
+                    )}
+                  </div>
+
+                  <div
+                    className="font-poppins font-light rounded-full bg-white cursor-pointer text-secondaryColor  flex items-center justify-center size-4 flex-grow-0 flex-shrink-0"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <p className="text-xs">
+                      {openIndex === null && index === 0
+                        ? "+"
+                        : openIndex === index
+                        ? "-"
+                        : "+"}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
-        </div>
-      </AnimatedSection>
+        </section>
 
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <h3 className="text-2xl font-semibold text-slate-900">What parents and learners say</h3>
-        <div className="mt-6 md:max-w-3xl">
-          <TestimonialCarousel items={[
-            { quote: 'The focused classes and mentoring changed everything for my daughter.', name: 'Mrs. N. Dlamini', role: 'Parent' },
-            { quote: 'I improved my marks and finally passed with confidence.', name: 'Sibusiso M', role: 'Learner' },
-            { quote: 'Supportive staff and great exam preparation — highly recommend.', name: 'Thandi M', role: 'Parent' }
-          ]} />
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="container mx-auto px-4 py-12">
-        <h3 className="text-2xl font-semibold text-slate-900">Meet our instructors</h3>
-        <p className="mt-2 text-slate-600">Experienced educators focused on results and student growth.</p>
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            {name:'Ms. Patel',role:'Senior Maths Tutor'},
-            {name:'Mr. Khumalo',role:'Science Lead'},
-            {name:'Mrs. van der Merwe',role:'English Coordinator'},
-            {name:'Mr. Nkosi',role:'Accounting Specialist'}
-          ].map((i) => (
-            <InstructorCard key={i.name} name={i.name} role={i.role} />
-          ))}
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="container mx-auto px-4 py-12 z-20">
-        <div className="bg-indigo-600 text-white rounded-2xl p-8 text-center shadow-lg z-20">
-          <h3 className="text-2xl font-semibold">Ready to take the next step?</h3>
-          <p className="mt-2 max-w-2xl mx-auto">Apply now for the upcoming intake or contact us for more information — our team will support your application.</p>
-          <div className="mt-6 flex justify-center gap-4">
-            <Link to="/admissions" className="px-6 py-3 bg-white text-indigo-600 rounded-md font-medium">Apply Now</Link>
-            <Link to="/contact" className="px-6 py-3 border border-white/30 text-white rounded-md">Contact Us</Link>
-          </div>
-        </div>
-      </AnimatedSection>
     </div>
   )
 }
