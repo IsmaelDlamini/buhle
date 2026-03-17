@@ -162,102 +162,58 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 </section>
 
 
+ <section className="relative overflow-hidden bg-white py-20 md:py-28">
+        <div className="container mx-auto grid items-center gap-12 px-4 md:grid-cols-2">
+          <AnimatedSection>
+            <div className="max-w-xl">
+              <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
+                About Us
+              </p>
 
-<AnimatedSection className="container mx-auto px-4 py-20">
-  <div className="grid md:grid-cols-2 gap-12 items-center">
+              <h1 className="mt-3 font-zuume text-5xl md:text-6xl text-secondary leading-none">
+                Building Confidence.
+                <br />
+                Improving Results.
+              </h1>
 
-    {/* LEFT CONTENT */}
-    <div>
-      <h2 className="font-zuume text-4xl md:text-5xl text-secondary mb-6">
-        Who We Are
-      </h2>
+              <p className="mt-6 font-poppins text-sm leading-7 text-slate-600 md:text-base">
+                At Buhle Learning Center, our mission is to create a supportive
+                and disciplined learning environment where learners can grow
+                academically, rebuild confidence, and work toward a stronger
+                future. We combine structured teaching with genuine care so
+                every learner feels seen, supported, and encouraged to succeed.
+              </p>
 
-      <p className="font-poppins text-slate-600 leading-relaxed mb-8">
-        EMASA Academy provides structured academic support designed to help
-        learners build confidence, improve their understanding, and achieve
-        better results in Mathematics and other key subjects. Our approach
-        combines focused lessons, consistent assessments, and mentorship so
-        every learner receives the attention they need to grow academically.
-      </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to="/admissions"
+                  className="inline-flex items-center justify-center rounded-lg bg-secondary px-6 py-3 font-poppins text-sm font-medium text-white transition hover:opacity-90"
+                >
+                  Apply Now
+                </Link>
 
-      {/* FEATURES */}
-      <div className="grid sm:grid-cols-2 gap-6">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-secondary px-6 py-3 font-poppins text-sm font-medium text-secondary transition hover:bg-secondary hover:text-white"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
 
-        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
-          <h3 className="font-semibold font-poppins text-secondary mb-1">
-            Small Focused Classes
-          </h3>
-          <p className="text-sm text-slate-500">
-            Smaller groups allow our tutors to give each learner the attention
-            they deserve.
-          </p>
+          <AnimatedSection>
+            <div className="relative">
+              <img
+                src={whoImg}
+                alt="Learners in class"
+                className="h-[420px] w-full rounded-[28px] object-cover shadow-[0_20px_60px_rgba(15,14,53,0.10)]"
+              />
+              <div className="absolute inset-0 rounded-[28px] bg-gradient-to-t from-black/15 to-transparent" />
+            </div>
+          </AnimatedSection>
         </div>
-
-        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
-          <h3 className="font-semibold font-poppins text-secondary mb-1">
-            Exam Preparation
-          </h3>
-          <p className="text-sm text-slate-500">
-            Learners practice with past papers and exam strategies that build
-            confidence.
-          </p>
-        </div>
-
-        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
-          <h3 className="font-semibold font-poppins text-secondary mb-1">
-            Personal Mentorship
-          </h3>
-          <p className="text-sm text-slate-500">
-            We guide learners beyond academics by building discipline and
-            motivation.
-          </p>
-        </div>
-
-        <div className="border border-border rounded-xl p-5 hover:shadow-md transition">
-          <h3 className="font-semibold font-poppins text-secondary mb-1">
-            Proven Results
-          </h3>
-          <p className="text-sm text-slate-500">
-            Many learners improve their marks significantly after joining our
-            programme.
-          </p>
-        </div>
-
-      </div>
-
-      {/* BUTTONS */}
-      <div className="mt-8 flex flex-wrap gap-4">
-        <Link
-          to="/admissions"
-          className="bg-secondary text-white px-6 py-3 rounded-lg font-poppins hover:opacity-90 transition"
-        >
-          Apply Now
-        </Link>
-
-        <Link
-          to="/about"
-          className="border border-secondary text-secondary px-6 py-3 rounded-lg font-poppins hover:bg-secondary hover:text-white transition"
-        >
-          Learn More
-        </Link>
-      </div>
-    </div>
-
-    {/* RIGHT IMAGE */}
-    <div className="relative">
-      <img
-        src={whoImg}
-        alt="Students learning"
-        className="rounded-2xl object-cover w-full h-[420px]"
-        loading="lazy"
-      />
-
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent" />
-    </div>
-
-  </div>
-</AnimatedSection>
-
+      </section>
 
 
 
