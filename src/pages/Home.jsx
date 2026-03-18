@@ -20,7 +20,7 @@ const [studentStories] = useState([
   {
     image: cert_image,
     name: "John Doe",
-    text: "EMASA helped me become more confident in Mathematics. The lessons were clear, supportive, and focused on helping me improve step by step.",
+    text: "Nkomazi Finishing School helped me become more confident in Mathematics. The lessons were clear, supportive, and focused on helping me improve step by step.",
   },
   {
     image: cert_image,
@@ -33,17 +33,17 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   
   const faqs = [
     {
-      question: "How do your students generally perform at EMASA?",
+      question: "How do your students generally perform at Nkomazi Finishing School?",
       answer:
-        "Our students who commit themselves not only in the extra lessons but also with the homework given generally perform well. For your child to perform well at EMASA, they have to commit to coming to the lessons and practicing at home with the resources given. ",
+        "Our students who commit themselves not only in the extra lessons but also with the homework given generally perform well. For your child to perform well at Nkomazi Finishing School, they have to commit to coming to the lessons and practicing at home with the resources given. ",
     },
     {
-      question: "What age groups or grades does EMASA cater for?",
+      question: "What age groups or grades does Nkomazi Finishing School cater for?",
       answer:
-        "We cater for students from grade 1 until matric as well as first and second year tertiary students with math and physics holiday lessons.",
+        "We cater for students in matric with math and physics holiday lessons.",
     },
     {
-      question: "Does EMASA conduct 1-on-1 lessons?",
+      question: "Does Nkomazi Finishing School conduct 1-on-1 lessons?",
       answer:
         "We generally work in groups but upon identifying kids who struggle to keep up with the group, we offer additional 1-on-1 sessions for maths on weekends or early hours before school.",
     },
@@ -56,7 +56,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
     {
       question:
-        "What makes EMASA Academy different from other tutoring services?",
+        "What makes Nkomazi Finishing School different from other tutoring services?",
       answer:
         "We go above and beyond by working overtime for our students. at no extra costs. This means that we let our students call should they need additional explaining or assistance with their work. We are passionate about knowing our scholars on a personal level in order to better understand how they can be helped. We spend time teaching our students to be disciplined  not only when dealing with Math but also when dealing with life and growth.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
     },
@@ -79,13 +79,13 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [navBarOpen, setNavBarOpen] = useState(false);
 
   const [isLoading, setIsLoading] = useState(
-    sessionStorage.getItem("loadedEmasa") == null ? true : false
+    sessionStorage.getItem("loadedNkomazi Finishing School") == null ? true : false
   );
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("loadedEmasa", "loaded");
+      sessionStorage.setItem("loadedNkomazi Finishing School", "loaded");
     }, 6000);
   }, []);
 
@@ -317,7 +317,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
         </h2>
         <p className="mt-4 font-poppins text-sm md:text-base text-slate-600">
           Real experiences from learners who have grown in confidence, improved
-          their understanding, and achieved better academic results with EMASA.
+          their understanding, and achieved better academic results with Nkomazi Finishing School.
         </p>
       </div>
     </AnimatedSection>
@@ -349,7 +349,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
                 {studentStories[currentStoryIndex].name}
               </h3>
               <p className="mt-1 font-poppins text-sm text-slate-500">
-                EMASA Student
+                Nkomazi Finishing School Student
               </p>
             </div>
           </div>
@@ -398,7 +398,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
     </h2>
 
     <p className="mt-4 font-poppins text-white/80">
-      Join EMASA Academy today and give your child the academic support they deserve.
+      Join Nkomazi Finishing School Academy today and give your child the academic support they deserve.
     </p>
 
     <div className="mt-8">
@@ -413,36 +413,90 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 </section>
 
 
-
-<section className="py-20 bg-grey">
+<section className="py-24 bg-grey">
   <div className="container mx-auto px-4">
-    <div className="grid md:grid-cols-3 gap-8 text-center">
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
+        Why Choose Us
+      </p>
+      <h2 className="mt-3 font-zuume text-4xl md:text-5xl text-secondary">
+        What Sets Us Apart
+      </h2>
+      <p className="mt-4 font-poppins text-sm md:text-base text-slate-600">
+        We create a focused learning environment that helps learners grow in
+        confidence, improve their understanding, and achieve better results.
+      </p>
+    </div>
 
-      <div>
-        <h3 className="font-semibold text-secondary">Personal Attention</h3>
-        <p className="text-sm text-slate-600 mt-2">
-          Every learner gets focused support.
+    <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
+        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            />
+          </svg>
+        </div>
+
+        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+          Personal Attention
+        </h3>
+
+        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+          Every learner receives focused support and guidance based on their
+          individual academic needs.
         </p>
       </div>
 
-      <div>
-        <h3 className="font-semibold text-secondary">Exam Results</h3>
-        <p className="text-sm text-slate-600 mt-2">
-          Proven improvement in marks.
+      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
+        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            />
+          </svg>
+        </div>
+
+        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+          Exam Results
+        </h3>
+
+        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+          Our learners build stronger understanding, improve their marks, and
+          approach exams with greater confidence.
         </p>
       </div>
 
-      <div>
-        <h3 className="font-semibold text-secondary">Dedicated Mentorship</h3>
-        <p className="text-sm text-slate-600 mt-2">
-          We support learners beyond academics.
+      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
+        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"
+            />
+          </svg>
+        </div>
+
+        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+          Dedicated Mentorship
+        </h3>
+
+        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+          We support learners beyond academics by encouraging discipline,
+          consistency, and long-term growth.
         </p>
       </div>
-
     </div>
   </div>
 </section>
-
 
 
     
@@ -458,7 +512,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           Frequently Asked Questions
         </h2>
         <p className="mt-4 font-poppins text-sm md:text-base text-white/75">
-          Everything you may want to know about our lessons, support, and how learners grow with EMASA Academy.
+          Everything you may want to know about our lessons, support, and how learners grow with Nkomazi Finishing School Academy.
         </p>
       </div>
     </AnimatedSection>

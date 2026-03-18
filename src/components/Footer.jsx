@@ -14,7 +14,7 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={site_logo}
-                alt="EMASA Academy logo"
+                alt="Nkomazi Finishing School logo"
                 className="w-20 md:w-24 object-contain"
               />
             </Link>
@@ -73,10 +73,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:admin@e-masa.co.za"
+                  href="mailto:admin@nkomazi-finishing-school.co.za"
                   className="transition hover:text-secondary"
                 >
-                  admin@e-masa.co.za
+                  admin@nkomazi-finishing-school.co.za
                 </a>
               </li>
               <li>
@@ -87,7 +87,7 @@ export default function Footer() {
                   className="transition hover:text-secondary"
                 >
                   32 Bell Street, Caltex Building, First Floor Office 126,
-                  Nelspruit Central, Mbombela, Mpumalanga
+                  Kamhlushwa 1350
                 </a>
               </li>
             </ul>
@@ -96,7 +96,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-border pt-6">
           <p className="text-center font-poppins text-sm text-slate-500">
-            © 2026 Eben Mathematics &amp; Science Academy. All rights reserved.
+            © 2026 Nkomazi Finishing School. All rights reserved.
           </p>
         </div>
       </div>
