@@ -31,29 +31,29 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur shadow-sm border-b border-slate-200"
+          ? "border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur"
           : "bg-white/70 backdrop-blur"
       }`}
     >
-      <div className="container mx-auto px-4 h-[72px] flex items-center justify-between">
+      <div className="container mx-auto flex h-[72px] items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={site_logo}
             alt="Nkomazi Finishing School"
-            className="w-20 md:w-24 h-auto max-h-16 object-contain"
+            className="h-auto max-h-16 w-20 object-contain md:w-24"
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 font-poppins text-sm">
+        <nav className="hidden items-center gap-8 font-poppins text-sm md:flex">
           {navItems.map((n) => (
             <NavLink key={n.to} to={n.to} end>
               {({ isActive }) => (
                 <span
                   className={`relative pb-1 transition ${
                     isActive
-                      ? "text-secondary font-semibold after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-secondary"
+                      ? "font-semibold text-secondary after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-secondary"
                       : "text-slate-700 hover:text-secondary"
                   }`}
                 >
@@ -67,7 +67,7 @@ export default function Header() {
         <div className="hidden md:flex">
           <Link
             to="/admissions"
-            className="bg-secondary text-white px-5 py-2 rounded-md font-poppins text-sm hover:opacity-90 transition"
+            className="rounded-md bg-secondary px-5 py-2 font-poppins text-sm text-white transition hover:opacity-90"
           >
             Apply Now
           </Link>
@@ -75,11 +75,11 @@ export default function Header() {
 
         <button
           onClick={() => setOpen(true)}
-          className="md:hidden p-2"
+          className="p-2 md:hidden"
           aria-label="Open navigation menu"
         >
           <svg
-            className="w-6 h-6 text-slate-800"
+            className="h-6 w-6 text-slate-800"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -93,66 +93,74 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 z-50 md:hidden"
-            onClick={() => setOpen(false)}
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="fixed inset-0 z-[60] flex min-h-screen flex-col bg-white md:hidden"
           >
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 260, damping: 25 }}
-              className="absolute right-0 top-0 h-full w-[280px] sm:w-[320px] bg-white shadow-xl p-6"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-8">
-                <img
-                  src={site_logo}
-                  className="w-20 h-auto object-contain"
-                  alt="Nkomazi Finishing School"
-                />
-                <button
-                  onClick={() => setOpen(false)}
-                  aria-label="Close navigation menu"
-                  className="text-2xl text-slate-700"
-                >
-                  ✕
-                </button>
-              </div>
+            {/* Top bar */}
+            <div className="flex items-center justify-between px-4 py-5">
+              <img
+                src={site_logo}
+                className="h-auto w-20 object-contain"
+                alt="Nkomazi Finishing School"
+              />
 
-              <nav className="flex flex-col gap-4 font-poppins">
-                {navItems.map((n) => (
-                  <NavLink
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close navigation menu"
+                className="text-3xl text-slate-700"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Centered nav */}
+            <div className="flex flex-1 items-center justify-center">
+              <nav className="flex flex-col items-center gap-6 text-center font-poppins">
+                {navItems.map((n, index) => (
+                  <motion.div
                     key={n.to}
-                    to={n.to}
-                    end
-                    onClick={() => setOpen(false)}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 24 }}
+                    transition={{ delay: 0.1 + index * 0.08, duration: 0.35 }}
                   >
-                    {({ isActive }) => (
-                      <span
-                        className={`block text-lg ${
+                    <NavLink
+                      to={n.to}
+                      end
+                      onClick={() => setOpen(false)}
+                      className={({ isActive }) =>
+                        `text-3xl transition ${
                           isActive
-                            ? "text-secondary font-semibold"
-                            : "text-slate-700"
-                        }`}
-                      >
-                        {n.label}
-                      </span>
-                    )}
-                  </NavLink>
+                            ? "font-semibold text-secondary"
+                            : "text-slate-800 hover:text-secondary"
+                        }`
+                      }
+                    >
+                      {n.label}
+                    </NavLink>
+                  </motion.div>
                 ))}
 
-                <Link
-                  to="/admissions"
-                  onClick={() => setOpen(false)}
-                  className="mt-6 text-center bg-secondary text-white py-2 rounded-md"
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 24 }}
+                  transition={{ delay: 0.45, duration: 0.35 }}
+                  className="pt-4"
                 >
-                  Apply Now
-                </Link>
+                  <Link
+                    to="/admissions"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex items-center justify-center rounded-full bg-secondary px-8 py-3 font-poppins text-base font-medium text-white transition hover:opacity-90"
+                  >
+                    Apply Now
+                  </Link>
+                </motion.div>
               </nav>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

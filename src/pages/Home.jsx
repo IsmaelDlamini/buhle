@@ -504,7 +504,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           </svg>
         </div>
 
-        <h3 className="mb-3 font-poppins text-lg font-bold text-secondary">
+        <h3 className="mb-3 font-poppins.v text-lg font-bold text-secondary">
           Exam Results
         </h3>
 
