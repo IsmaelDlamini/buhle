@@ -15,6 +15,7 @@ import hero4 from '../assets/hero-4.jpg'
 import hero5 from '../assets/hero-5.jpg'
 import activities from '../assets/activities.jpg'
 import notice from '../assets/notice.jpg'
+import bgImage2 from '../assets/bgimage2.jpg'
 
 export default function Home(){
 
@@ -444,26 +445,34 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   </div>
 </section>
 
+<section
+  className="relative py-24 bg-cover bg-center bg-no-repeat bg-fixed"
+  style={{ backgroundImage: `url(${bgImage2})` }}
+>
+  {/* Blue overlay */}
+  <div className="absolute inset-0 bg-[#0d3b66]/70" />
 
-<section className="py-24 bg-grey">
-  <div className="container mx-auto px-4">
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-4">
     <div className="mx-auto max-w-3xl text-center">
-      <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
+      <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-white/80">
         Why Choose Us
       </p>
-      <h2 className="mt-3 font-zuume text-4xl md:text-5xl text-secondary">
+
+      <h2 className="mt-3 font-zuume text-4xl text-white md:text-5xl">
         What Sets Us Apart
       </h2>
-      <p className="mt-4 font-poppins text-sm md:text-base text-slate-600">
+
+      <p className="mt-4 font-poppins text-sm text-white/85 md:text-base">
         We create a focused learning environment that helps learners grow in
         confidence, improve their understanding, and achieve better results.
       </p>
     </div>
 
-    <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
-        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="border border-white/15 bg-white/95 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div className="mb-6 flex h-12 w-12 items-center justify-center bg-secondary/10 text-secondary">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -473,19 +482,19 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           </svg>
         </div>
 
-        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+        <h3 className="mb-3 font-poppins text-lg font-bold text-secondary">
           Personal Attention
         </h3>
 
-        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+        <p className="font-poppins text-sm leading-relaxed text-slate-600">
           Every learner receives focused support and guidance based on their
           individual academic needs.
         </p>
       </div>
 
-      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
-        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="border border-white/15 bg-white/95 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div className="mb-6 flex h-12 w-12 items-center justify-center bg-secondary/10 text-secondary">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -495,19 +504,19 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           </svg>
         </div>
 
-        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+        <h3 className="mb-3 font-poppins text-lg font-bold text-secondary">
           Exam Results
         </h3>
 
-        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+        <p className="font-poppins text-sm leading-relaxed text-slate-600">
           Our learners build stronger understanding, improve their marks, and
           approach exams with greater confidence.
         </p>
       </div>
 
-      <div className="bg-white p-8 border border-secondary/10 hover:shadow-xl transition-all duration-300">
-        <div className="w-12 h-12 bg-secondary/10 text-secondary flex items-center justify-center mb-6">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="border border-white/15 bg-white/95 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div className="mb-6 flex h-12 w-12 items-center justify-center bg-secondary/10 text-secondary">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -517,11 +526,11 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           </svg>
         </div>
 
-        <h3 className="text-lg font-bold text-secondary mb-3 font-poppins">
+        <h3 className="mb-3 font-poppins text-lg font-bold text-secondary">
           Dedicated Mentorship
         </h3>
 
-        <p className="text-sm text-slate-600 leading-relaxed font-poppins">
+        <p className="font-poppins text-sm leading-relaxed text-slate-600">
           We support learners beyond academics by encouraging discipline,
           consistency, and long-term growth.
         </p>
