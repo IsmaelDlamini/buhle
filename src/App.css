@@ -13,6 +13,21 @@
 }
 
 
+.stroke-white\/40 {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+}
+.stroke-white\/70 {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.7);
+}
+
+.stroke-white-40 {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+.stroke-white-70 {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.944);
+}
+
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;

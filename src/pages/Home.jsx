@@ -8,6 +8,11 @@ import { Link } from 'react-router-dom'
 import whoImg from '../assets/hero-2.jpg'
 import { useState, useEffect } from 'react'
 import cert_image from "../assets/cert-image.jpg";
+import hero1 from '../assets/hero-1.jpg'
+import hero2 from '../assets/hero-2.jpg'
+import hero3 from '../assets/hero-3.jpg'
+import hero4 from '../assets/hero-4.jpg'
+import hero5 from '../assets/hero-5.jpg'
 
 export default function Home(){
 
@@ -220,82 +225,76 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
 
     
- <section className="py-24 bg-grey">
+<section className="py-24 bg-grey">
   <div className="container mx-auto px-4">
-
     {/* Heading */}
-    <div className="text-center max-w-2xl mx-auto">
+    <div className="text-center max-w-3xl mx-auto">
       <p className="font-poppins text-sm uppercase tracking-[0.2em] text-secondary/70">
-        Our Programmes
+        Our Educational Services
       </p>
 
       <h2 className="mt-3 font-zuume text-4xl md:text-5xl text-secondary">
         What We Offer
       </h2>
 
-      <p className="mt-4 text-slate-600 font-poppins text-sm md:text-base">
-        Structured academic support designed to help learners build confidence,
-        improve results, and succeed in their studies.
+      <p className="mt-4 text-slate-600 font-poppins text-sm md:text-base leading-relaxed">
+        Discover our range of educational services designed to foster learning,
+        spirituality, and personal growth.
       </p>
     </div>
 
     {/* Cards */}
-    <div className="grid gap-6 mt-14 md:grid-cols-3">
+    <div className="grid gap-6 mt-14 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        {
+          number: "01",
+          title: "Academic Programs",
+          image: hero2,
+        },
+        {
+          number: "02",
+          title: "Sports And Extracurricular Activities",
+          image: hero1,
+        },
+        {
+          number: "03",
+          title: "Boarding Facilities",
+          image: hero4,
+        }
+      ].map((card, i) => (
+        <div
+          key={i}
+          className="group relative h-[420px] overflow-hidden rounded-2xl"
+        >
+          {/* Background image */}
+          <img
+            src={card.image}
+            alt={card.title}
+            className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-110"
+          />
 
-      {/* Card 1 */}
-      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/35 transition-all duration-500 ease-out group-hover:bg-black/50" />
 
-        <h3 className="font-poppins text-lg font-semibold text-secondary">
-          Mathematics
-        </h3>
+          {/* Optional subtle gradient for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
 
-        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-          Build strong foundations, improve problem-solving skills, and prepare
-          effectively for exams with structured lessons.
-        </p>
+          {/* Content */}
+          <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
+            <span className="absolute left-6 top-6 text-5xl font-bold text-transparent transition-all duration-500 ease-out stroke-white-40 group-hover:stroke-white-70 md:text-7xl">
+              {card.number}
+            </span>
 
-        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
-          Learn more →
+            <h3 className="max-w-[220px] font-zuume text-3xl font-semibold leading-tight text-white">
+              {card.title}
+            </h3>
+
+            <div className="mt-4 translate-y-2 text-sm font-medium text-white/90 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+              Learn more →
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Card 2 */}
-      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
-
-        <h3 className="font-poppins text-lg font-semibold text-secondary">
-          Physical Sciences
-        </h3>
-
-        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-          Simplify complex concepts and develop a clear understanding through
-          practical learning and exam-focused preparation.
-        </p>
-
-        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
-          Learn more →
-        </div>
-      </div>
-
-      {/* Card 3 */}
-      <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 transition duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition" />
-
-        <h3 className="font-poppins text-lg font-semibold text-secondary">
-          Primary Support
-        </h3>
-
-        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-          Help younger learners build confidence and strong academic habits
-          early in their education journey.
-        </p>
-
-        <div className="mt-6 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition">
-          Learn more →
-        </div>
-      </div>
-
+      ))}
     </div>
   </div>
 </section>
