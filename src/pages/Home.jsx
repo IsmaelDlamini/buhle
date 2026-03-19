@@ -15,7 +15,7 @@ import hero4 from '../assets/hero-4.jpg'
 import hero5 from '../assets/hero-5.jpg'
 import activities from '../assets/activities.jpg'
 import notice from '../assets/notice.jpg'
-import bgImage2 from '../assets/bgimage2.jpg'
+import bgImage2 from '../assets/bgImage2.jpg'
 
 export default function Home(){
 
