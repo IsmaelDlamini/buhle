@@ -6,7 +6,7 @@ import InstructorCard from '../components/InstructorCard'
 import TestimonialCarousel from '../components/TestimonialCarousel'
 import { Link } from 'react-router-dom'
 import whoImg from '../assets/hero-2.jpg'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import cert_image from "../assets/cert-image.jpg";
 import hero1 from '../assets/hero-1.jpg'
 import hero2 from '../assets/hero-2.jpg'
@@ -98,6 +98,83 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   }, []);
 
 
+
+  function CountUp({ end, duration = 2000, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+
+    let startTime = null;
+    const startValue = 0;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+
+      const currentValue = Math.floor(progress * (end - startValue) + startValue);
+      setCount(currentValue);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [started, end, duration]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+}
+
+
+ const stats = [
+    {
+      value: 500,
+      suffix: "+",
+      label: "Students Supported",
+    },
+    {
+      value: 90,
+      suffix: "%",
+      label: "Pass Rate",
+    },
+    {
+      value: 12,
+      prefix: "Grade ",
+      label: "Academic Support",
+      noCountSuffix: "",
+    },
+    {
+      value: 10,
+      suffix: "+",
+      label: "Years Experience",
+    },
+  ];
+
+
   return (
     <div>
       {/* Hero wrapper: overflow-hidden so the right-side image is clipped; Hero content stays above */}
@@ -124,50 +201,37 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       </div>
 
 
+<section className="relative -mt-16 z-20 px-4">
+      <div className="container mx-auto">
+        <div className="rounded-3xl bg-white/95 backdrop-blur-sm shadow-md border border-slate-200 overflow-hidden">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className={`group relative p-4 text-center transition-all duration-300 hover:bg-slate-50 ${
+                  index !== stats.length - 1
+                    ? "border-b sm:border-b-0 lg:border-r border-slate-100"
+                    : ""
+                } ${index === 0 ? "sm:border-r" : ""} ${
+                  index === 1 ? "lg:border-r sm:border-r-0" : ""
+                }`}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-      <section className="relative -mt-16 z-20 px-4">
-  <div className="container mx-auto">
-    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 grid grid-cols-2 md:grid-cols-4 overflow-hidden">
+                <div className="text-3xl md:text-3xl font-bold text-secondary font-zuume tracking-tight">
+                  {stat.prefix ? stat.prefix : ""}
+                  <CountUp end={stat.value} suffix={stat.suffix || stat.noCountSuffix || ""} />
+                </div>
 
-      <div className="p-6 text-center border-b md:border-b-0 md:border-r border-slate-100">
-        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
-          500+
+                <p className="text-sm md:text-base text-slate-600 font-poppins mt-3">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <p className="text-sm text-slate-600 font-poppins mt-1">
-          Students Supported
-        </p>
       </div>
-
-      <div className="p-6 text-center border-b md:border-b-0 md:border-r border-slate-100">
-        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
-          90%
-        </div>
-        <p className="text-sm text-slate-600 font-poppins mt-1">
-          Pass Rate
-        </p>
-      </div>
-
-      <div className="p-6 text-center md:border-r border-slate-100">
-        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
-          Grade 12
-        </div>
-        <p className="text-sm text-slate-600 font-poppins mt-1">
-          Academic Support
-        </p>
-      </div>
-
-      <div className="p-6 text-center">
-        <div className="text-3xl md:text-4xl font-bold text-secondary font-zuume">
-          10+
-        </div>
-        <p className="text-sm text-slate-600 font-poppins mt-1">
-          Years Experience
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
 
  <section className="relative overflow-hidden bg-white py-20 md:py-28">
