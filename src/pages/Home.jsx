@@ -13,6 +13,8 @@ import hero2 from '../assets/hero-2.jpg'
 import hero3 from '../assets/hero-3.jpg'
 import hero4 from '../assets/hero-4.jpg'
 import hero5 from '../assets/hero-5.jpg'
+import activities from '../assets/activities.jpg'
+import notice from '../assets/notice.jpg'
 
 export default function Home(){
 
@@ -223,8 +225,6 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
 
 
-
-    
 <section className="py-24 bg-grey">
   <div className="container mx-auto px-4">
     {/* Heading */}
@@ -243,64 +243,97 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       </p>
     </div>
 
-    {/* Cards */}
-    <div className="grid gap-6 mt-14 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        {
-          number: "01",
-          title: "Academic Programs",
-          image: hero2,
-        },
-        {
-          number: "02",
-          title: "Sports And Extracurricular Activities",
-          image: hero1,
-        },
-        {
-          number: "03",
-          title: "Boarding Facilities",
-          image: hero4,
-        }
-      ].map((card, i) => (
-        <div
-          key={i}
-          className="group relative h-[420px] overflow-hidden rounded-2xl"
-        >
-          {/* Background image */}
-          <img
-            src={card.image}
-            alt={card.title}
-            className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-110"
-          />
+    {/* Layout */}
+    <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+      {/* LEFT (smaller) */}
+      <div className="grid gap-5">
+        {[
+          {
+            number: "01",
+            title: "Academic Programs",
+            image: hero2,
+            button: "Explore Programmes",
+            href: "/academic-programs",
+          },
+          {
+            number: "02",
+            title: "Sports And Extracurricular Activities",
+            image: activities,
+            button: "View Activities",
+            href: "/sports-and-extracurricular",
+          },
+        ].map((card, i) => (
+          <div
+            key={i}
+            className="group relative h-[320px] overflow-hidden rounded-[20px] bg-black shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <img
+              src={card.image}
+              alt={card.title}
+              className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
+            />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/35 transition-all duration-500 ease-out group-hover:bg-black/50" />
+            <div className="absolute inset-0 bg-black/35 transition-all duration-500 group-hover:bg-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
-          {/* Optional subtle gradient for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+            <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
+              <span className="stroke-white-40 group-hover:stroke-white-70 absolute left-6 top-6 text-5xl font-bold text-transparent transition-all duration-500 md:text-6xl">
+                {card.number}
+              </span>
 
-          {/* Content */}
-          <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
-            <span className="absolute left-6 top-6 text-5xl font-bold text-transparent transition-all duration-500 ease-out stroke-white-40 group-hover:stroke-white-70 md:text-7xl">
-              {card.number}
-            </span>
+              <h3 className="max-w-[220px] font-zuume text-3xl leading-tight text-white">
+                {card.title}
+              </h3>
 
-            <h3 className="max-w-[220px] font-zuume text-3xl font-semibold leading-tight text-white">
-              {card.title}
-            </h3>
-
-            <div className="mt-4 translate-y-2 text-sm font-medium text-white/90 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-              Learn more →
+              <a
+                href={card.href}
+                className="mt-5 inline-flex w-fit items-center rounded-full border border-white/20 bg-white px-5 py-2.5 font-poppins text-sm font-medium text-secondary shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary hover:text-white"
+              >
+                {card.button}
+              </a>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* RIGHT (Notice Board) */}
+      <div className="relative h-[660px] overflow-hidden rounded-[20px] border border-border bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl">
+        {/* Notice board banner */}
+        <div className="absolute left-5 top-5 z-20 inline-flex items-center rounded-full bg-secondary px-4 py-2 shadow-lg">
+          <span className="font-poppins text-xs font-semibold uppercase tracking-[0.18em] text-white">
+            Notice Board
+          </span>
         </div>
-      ))}
+
+        {/* Optional pinned badge */}
+        <div className="absolute right-5 top-5 z-20 rounded-full bg-red-500 px-3 py-1 shadow-md">
+          <span className="font-poppins text-[10px] font-semibold uppercase tracking-wider text-white">
+            New
+          </span>
+        </div>
+
+        {/* Poster / notice image */}
+        <div className="relative flex h-full items-center justify-center bg-slate-100 p-5 md:p-6">
+          <img
+            src={notice}
+            alt="School Notice Board Poster"
+            className="h-full w-full rounded-[14px] object-contain transition-all duration-700 ease-out hover:scale-[1.01]"
+          />
+        </div>
+
+        {/* Bottom action area */}
+        <div className="absolute bottom-5 left-5 z-20">
+          <a
+            href="/notices"
+            className="inline-flex items-center rounded-full bg-secondary px-5 py-2.5 font-poppins text-sm font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary/90"
+          >
+            View All Notices
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-
-
 
 
 
