@@ -218,7 +218,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                <div className="text-3xl md:text-3xl font-bold text-secondary font-zuume tracking-tight">
+                <div className="text-3xl md:text-3xl font-bold text-secondary font-raleway tracking-tight">
                   {stat.prefix ? stat.prefix : ""}
                   <CountUp end={stat.value} suffix={stat.suffix || stat.noCountSuffix || ""} />
                 </div>

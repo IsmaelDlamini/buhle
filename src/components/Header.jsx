@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import site_logo from "../assets/site_logo.png";
+import site_logo from "../assets/site_logo_3.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);

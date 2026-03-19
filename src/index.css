@@ -3,6 +3,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
+
+@font-face {
+    font-family: 'Zuume';
+    src: url('../fonts/Zuume-Bold.woff2') format('woff2'),
+        url('../fonts/Zuume-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  
+
+  @font-face {
+    font-family: 'Zuume';
+    src: url('Zuume-ExtraBold.woff2') format('woff2'),
+        url('Zuume-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
