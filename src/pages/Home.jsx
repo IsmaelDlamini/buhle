@@ -291,8 +291,14 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
 
 <section className="py-24 bg-grey">
+
+  
+
+
+  
   <div className="container mx-auto px-4">
     {/* Heading */}
+    <AnimatedSection>
     <div className="text-center max-w-3xl mx-auto">
       <p className="font-poppins text-sm uppercase tracking-[0.2em] text-secondary/70">
         Our Educational Services
@@ -308,8 +314,11 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       </p>
     </div>
 
+    </AnimatedSection>
+
     {/* Layout */}
     <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+    <AnimatedSection>
       {/* LEFT (smaller) */}
       <div className="grid gap-5">
         {[
@@ -361,6 +370,8 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
         ))}
       </div>
 
+      </AnimatedSection>
+ <AnimatedSection>
       {/* RIGHT (Notice Board) */}
       <div className="relative h-[660px] overflow-hidden rounded-[20px] border border-border bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl">
         {/* Notice board banner */}
@@ -396,6 +407,8 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           </a>
         </div>
       </div>
+
+      </AnimatedSection>
     </div>
   </div>
 </section>
