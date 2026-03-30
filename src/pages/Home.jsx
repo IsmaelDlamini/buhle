@@ -22,17 +22,17 @@ export default function Home(){
 const [studentStories] = useState([
   {
     image: cert_image,
-    name: "Rethabile Bohlale",
+    name: "Student 1",
     text: "Good Afternoon ma'am. Thank you so much for helping me achieve my goal. I was able to move from 40% to 51% in Mathematics in a very short period. I did not think I was going to make it because Maths is not really my strong suit, but you made it easy for me to understand the topics and that helped me during practice and in the exam. You sharpened my mind and gave me confidence. No words can truly express my gratitude.",
   },
   {
     image: cert_image,
-    name: "John Doe",
+    name: "Student 2",
     text: "Nkomazi Finishing School helped me become more confident in Mathematics. The lessons were clear, supportive, and focused on helping me improve step by step.",
   },
   {
     image: cert_image,
-    name: "Jane Doe",
+    name: "Student 3",
     text: "The extra support and guidance made a real difference in my studies. I became more disciplined and started seeing better results.",
   },
 ]);
@@ -438,47 +438,65 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   </div>
 </section>
 
-
-<section className="bg-white py-24">
+<section className="bg-white py-20 md:py-24">
   <div className="container mx-auto px-4">
     <AnimatedSection>
       <div className="mx-auto max-w-3xl text-center">
         <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
           Success Stories
         </p>
-        <h2 className="mt-3 font-zuume text-5xl md:text-6xl text-secondary">
+
+        <h2 className="mt-3 font-zuume text-4xl text-secondary md:text-6xl">
           Our Student Stories
         </h2>
-        <p className="mt-4 font-poppins text-sm md:text-base text-slate-600">
+
+        <p className="mt-4 font-poppins text-sm leading-relaxed text-slate-600 md:text-base">
           Real experiences from learners who have grown in confidence, improved
-          their understanding, and achieved better academic results with Nkomazi Finishing School.
+          their understanding, and achieved better academic results with
+          Nkomazi Finishing School.
         </p>
       </div>
     </AnimatedSection>
 
     <div className="mx-auto mt-14 max-w-6xl">
       <AnimatedSection>
-        <div className="grid items-stretch gap-8 overflow-hidden rounded-[28px] border border-border bg-grey/40 p-4 md:grid-cols-[0.95fr_1.05fr] md:p-6">
-          <div className="overflow-hidden rounded-2xl bg-white">
+        <div className="grid items-stretch gap-6 overflow-hidden rounded-[30px] border border-slate-200 bg-slate-50 p-4 shadow-[0_12px_40px_rgba(15,23,42,0.06)] md:grid-cols-[0.95fr_1.05fr] md:p-6">
+          {/* Image side */}
+          <div className="relative overflow-hidden rounded-[24px] bg-white">
             <img
               src={studentStories[currentStoryIndex].image}
               alt={studentStories[currentStoryIndex].name}
-              className="h-[320px] w-full object-cover md:h-full md:min-h-[500px]"
+              className="h-[320px] w-full object-cover md:h-full md:min-h-[520px]"
             />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+
+            <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-2 shadow-md backdrop-blur-sm">
+              <span className="font-poppins text-xs font-medium text-secondary">
+                Student Journey
+              </span>
+            </div>
           </div>
 
-          <div className="flex flex-col justify-between rounded-2xl bg-white p-6 md:p-10 shadow-sm">
+          {/* Text side */}
+          <div className="flex flex-col justify-between rounded-[24px] bg-white p-6 shadow-sm md:p-10">
             <div>
               <span className="inline-flex rounded-full bg-secondary/8 px-4 py-1.5 font-poppins text-xs font-medium text-secondary">
                 Student Testimonial
               </span>
 
-              <p className="mt-6 font-poppins text-sm leading-7 text-slate-600 md:text-[15px] md:leading-8">
-                “{studentStories[currentStoryIndex].text}”
-              </p>
+              <div className="mt-6">
+                <span className="font-zuume text-6xl leading-none text-secondary/15">
+                  “
+                </span>
+
+                <p className="-mt-3 font-poppins text-[15px] leading-8 text-slate-600 md:text-[17px]">
+                  {studentStories[currentStoryIndex].text}
+                </p>
+              </div>
             </div>
 
-            <div className="mt-8 border-t border-border pt-6">
+            <div className="mt-8 border-t border-slate-200 pt-6">
               <h3 className="font-poppins text-lg font-semibold text-secondary">
                 {studentStories[currentStoryIndex].name}
               </h3>
@@ -493,32 +511,29 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       <AnimatedSection>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {studentStories.map((story, index) => {
-            const isActive = index === currentStoryIndex;
+            const isActive = index === currentStoryIndex
 
             return (
               <button
                 key={index}
                 type="button"
                 onClick={() => setCurrentStoryIndex(index)}
-                className={`rounded-full px-4 py-2 font-poppins text-sm transition ${
+                className={`rounded-full px-4 py-2 font-poppins text-sm transition-all duration-300 ${
                   isActive
-                    ? "bg-secondary text-white shadow-sm"
-                    : "bg-white text-slate-600 border border-border hover:border-secondary/30 hover:text-secondary"
+                    ? 'bg-secondary text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-600 hover:border-secondary/30 hover:text-secondary'
                 }`}
                 aria-label={`Show story from ${story.name}`}
               >
                 {story.name}
               </button>
-            );
+            )
           })}
         </div>
       </AnimatedSection>
     </div>
   </div>
 </section>
-
-
-
 
 
 
