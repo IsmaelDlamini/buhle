@@ -1,20 +1,19 @@
 import React from "react";
 import AnimatedSection from "../components/AnimatedSection";
+import aboutustile9 from "../assets/about-us-tile-9.jpg";
 
 const subjects = [
   {
     title: "Mathematics",
     letter: "M",
     desc: "From foundational concepts to advanced problem-solving, we help learners build confidence, accuracy, and strong exam technique in Mathematics.",
-    bg: "bg-[#F8FAFC]",
-    text: "text-[#0C102A]",
-    subtext: "text-[#3A5683]",
-    iconColor: "text-[#3A5683]",
-    border: "border-[#0C102A]/10",
-    offset: "",
-    dark: false,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -28,15 +27,13 @@ const subjects = [
     title: "Physical Sciences",
     letter: "P",
     desc: "We simplify challenging concepts through structured explanations, practical examples, and focused revision that prepares students for tests and exams.",
-    bg: "bg-[#3A5683]/5",
-    text: "text-[#0C102A]",
-    subtext: "text-[#3A5683]",
-    iconColor: "text-[#3A5683]",
-    border: "border-[#0C102A]/10",
-    offset: "lg:mt-16",
-    dark: false,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -50,15 +47,13 @@ const subjects = [
     title: "Life Sciences",
     letter: "L",
     desc: "Explore biology with engaging lessons that improve understanding, strengthen terminology, and help learners answer with confidence in assessments.",
-    bg: "bg-[#0C102A]",
-    text: "text-white",
-    subtext: "text-[#8AA4C8]",
-    iconColor: "text-[#8AA4C8]",
-    border: "border-white/10",
-    offset: "lg:mt-32",
-    dark: true,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -72,15 +67,13 @@ const subjects = [
     title: "English",
     letter: "E",
     desc: "We support learners in comprehension, writing, grammar, and literature so they can communicate clearly and perform better across assessments.",
-    bg: "bg-[#F8FAFC]",
-    text: "text-[#0C102A]",
-    subtext: "text-[#3A5683]",
-    iconColor: "text-[#3A5683]",
-    border: "border-[#0C102A]/10",
-    offset: "",
-    dark: false,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -94,15 +87,13 @@ const subjects = [
     title: "Geography",
     letter: "G",
     desc: "From mapwork to theory, we help students connect concepts, analyse case studies, and improve exam performance with targeted preparation.",
-    bg: "bg-[#3A5683]/5",
-    text: "text-[#0C102A]",
-    subtext: "text-[#3A5683]",
-    iconColor: "text-[#3A5683]",
-    border: "border-[#0C102A]/10",
-    offset: "lg:mt-16",
-    dark: false,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -116,15 +107,13 @@ const subjects = [
     title: "Accounting",
     letter: "A",
     desc: "We teach Accounting step by step, helping learners understand financial concepts, master calculations, and answer structured questions correctly.",
-    bg: "bg-[#0C102A]",
-    text: "text-white",
-    subtext: "text-[#8AA4C8]",
-    iconColor: "text-[#8AA4C8]",
-    border: "border-white/10",
-    offset: "lg:mt-32",
-    dark: true,
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -138,60 +127,72 @@ const subjects = [
 
 export default function Subjects() {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <div className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-block text-sm uppercase tracking-[0.2em] text-[#3A5683] raleway-semibold mb-4">
-              Our Subjects
-            </span>
+    <div className="bg-white text-secondary">
+      <main>
+        {/* Hero */}
+        <section
+          className="relative overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: `url(${aboutustile9})` }}
+        >
+          <div className="absolute inset-0 bg-[#0f3d5c]/75" />
 
-            <h1 className="text-4xl md:text-5xl raleway-bold text-[#0C102A] leading-tight">
-              Focused Subject Support
-              <span className="block text-[#3A5683] mt-2">Designed For Real Results</span>
-            </h1>
+          <div className="relative mx-auto max-w-4xl px-5 pt-24 pb-14 text-center text-white md:px-8 md:pt-28 md:pb-16">
+            <AnimatedSection>
+              <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/70">
+                Our Subjects
+              </p>
 
-            <p className="mt-5 text-slate-600 text-base md:text-lg leading-relaxed">
-              We offer structured academic support across key school subjects,
-              helping learners strengthen their understanding, improve confidence,
-              and prepare effectively for exams.
-            </p>
+              <h1 className="mt-3 font-zuume text-3xl leading-tight md:text-4xl">
+                Focused Subject Support
+              </h1>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+        </section>
 
-        <AnimatedSection className="flex flex-col lg:flex-row gap-6 md:gap-8 flex-wrap">
-          {subjects.map((subject) => (
-            <div
-              key={subject.title}
-              className={`w-full lg:w-[31%] ${subject.bg} ${subject.offset} p-8 md:p-12 relative overflow-hidden group transition-transform duration-500 hover:-translate-y-2`}
-            >
-              <span
-                className={`absolute -right-4 md:-right-8 -top-4 md:-top-8 text-[8rem] md:text-[12rem] font-black ${
-                  subject.dark ? "text-white/5" : "text-[#0C102A]/5"
-                } group-hover:scale-110 transition-transform duration-700 select-none`}
-              >
-                {subject.letter}
-              </span>
-
-              <div className="relative z-10">
-                <div className={`${subject.iconColor} mb-4`}>{subject.icon}</div>
-
-                <h3
-                  className={`text-xl md:text-2xl raleway-bold ${subject.text} mb-4 md:mb-6 border-b ${subject.border} pb-4`}
-                >
-                  {subject.title}
-                </h3>
-
-                <p
-                  className={`${subject.subtext} leading-relaxed text-sm md:text-base`}
-                >
-                  {subject.desc}
+        {/* Subjects grid */}
+        <section className="bg-white py-10 md:py-14">
+          <div className="container mx-auto px-5 md:px-8">
+            <AnimatedSection>
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="font-poppins text-sm leading-7 text-slate-600 md:text-base md:leading-8">
+                  We offer structured academic support across key school
+                  subjects, helping learners strengthen their understanding,
+                  improve confidence, and prepare effectively for exams.
                 </p>
               </div>
-            </div>
-          ))}
-        </AnimatedSection>
-      </div>
-    </section>
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
+                {subjects.map((subject) => (
+                  <div
+                    key={subject.title}
+                    className="group relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md md:p-7"
+                  >
+                    <span className="pointer-events-none absolute right-4 top-2 font-zuume text-[5rem] leading-none text-secondary/10 transition duration-500 group-hover:scale-110 md:text-[6rem]">
+                      {subject.letter}
+                    </span>
+
+                    <div className="relative z-10">
+                      <div className="text-secondary">{subject.icon}</div>
+
+                      <h2 className="mt-5 font-zuume text-2xl leading-tight text-secondary">
+                        {subject.title}
+                      </h2>
+
+                      <div className="mt-4 h-px w-full bg-slate-200" />
+
+                      <p className="mt-4 font-poppins text-sm leading-7 text-slate-600 md:text-[15px]">
+                        {subject.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }

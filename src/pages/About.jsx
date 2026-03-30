@@ -145,183 +145,129 @@ export default function About() {
       <main>
       {/* HERO */}
 <section
-  className="relative bg-fixed bg-center bg-cover"
+  className="relative overflow-hidden bg-cover bg-center"
   style={{ backgroundImage: `url(${aboutustile9})` }}
 >
-  {/* BLUE OVERLAY */}
-  <div className="absolute inset-0 bg-[#0f3d5c]/70"></div>
+  <div className="absolute inset-0 bg-[#0f3d5c]/75" />
 
-  {/* CONTENT */}
-  <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center text-white">
+  {/* content */}
+  <div className="relative mx-auto max-w-3xl px-5 pt-24 pb-14 text-center text-white md:pt-28 md:pb-16">
     <AnimatedSection>
-      <p className="font-poppins uppercase tracking-[0.3em] text-xs md:text-sm text-white/80 mb-4">
-        Welcome to Buhle Learning Center
+      <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/70">
+        About Us
       </p>
 
-      <h1 className="raleway-black text-4xl sm:text-5xl md:text-6xl tracking-wide leading-tight">
-        ABOUT US
+      <h1 className="mt-3 font-zuume text-3xl leading-tight md:text-4xl">
+        Building Confidence. Improving Results.
       </h1>
-
-      <p className="mt-6 font-poppins text-sm sm:text-base md:text-lg leading-7 md:leading-8 max-w-3xl mx-auto text-white/90">
-        At Buhle Learning Center, we aim to create a supportive and
-        disciplined learning environment where learners can grow
-        academically, rebuild confidence, and work toward a stronger
-        future.
-      </p>
-
-      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Link
-          to="/contact"
-          className="rounded-full bg-white text-secondary px-7 py-3 font-poppins text-sm md:text-base hover:bg-secondary hover:text-white duration-300 shadow-md"
-        >
-          Get Started
-        </Link>
-
-        <a
-          href="#mission"
-          className="rounded-full border border-white/40 px-7 py-3 font-poppins text-sm md:text-base hover:bg-white hover:text-secondary duration-300"
-        >
-          Learn More
-        </a>
-      </div>
     </AnimatedSection>
   </div>
 </section>
 
         {/* INTRO + SLIDER + GALLERY */}
-        <section className="py-14 md:py-20">
-          <div className="max-w-6xl mx-auto px-5 md:px-8">
-            <AnimatedSection>
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 md:p-8">
-                  <p className="font-poppins text-base md:text-lg leading-8 text-secondary/90">
-                    We combine structured teaching with genuine care so every
-                    learner feels seen, supported, and encouraged to succeed.
-                    Our goal is not only to help students improve marks, but
-                    also to build confidence, discipline, and a stronger mindset
-                    for long-term growth.
-                  </p>
-                </div>
+  <section className="py-10 md:py-14">
+  <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <AnimatedSection>
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="font-zuume text-3xl text-secondary md:text-4xl">
+          A Learning Space Built On Support
+        </h2>
 
-                <div
-                  className="relative bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-8 min-h-[250px] md:min-h-[280px] overflow-hidden"
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                >
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-[#9DCAEB]/20 rounded-full blur-2xl" />
-
-                  {reasons.map((reason, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 p-6 md:p-8 flex flex-col justify-center transition-all duration-700 ${
-                        index === currentReasonIndex
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-4 pointer-events-none"
-                      }`}
-                    >
-                      <div className="flex items-start gap-5 md:gap-6">
-                        <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-secondary text-white flex items-center justify-center shadow-md">
-                          <span className="raleway-black text-2xl md:text-3xl tracking-wider">
-                            {index < 9 ? "0" : ""}
-                            {index + 1}
-                          </span>
-                        </div>
-
-                        <div className="pt-1">
-                          <h2 className="text-lg md:text-xl font-semibold font-poppins">
-                            {reason.title}
-                          </h2>
-                          <p className="text-sm md:text-base text-secondary/80 font-poppins mt-3 leading-6 md:leading-7 max-w-md">
-                            {reason.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection>
-              <ul className="flex items-center justify-center gap-2 mt-8">
-                {reasons.map((_, index) => (
-                  <li
-                    key={index}
-                    onClick={() => {
-                      setCurrentReasonIndex(index);
-                      startAutoSlide();
-                    }}
-                    className={`h-2 rounded-full cursor-pointer duration-300 ${
-                      index === currentReasonIndex
-                        ? "w-10 bg-secondary"
-                        : "w-6 bg-secondary/20 hover:bg-secondary/40"
-                    }`}
-                    role="button"
-                    tabIndex="0"
-                  />
-                ))}
-              </ul>
-            </AnimatedSection>
-
-            <AnimatedSection>
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-12">
-  {galleryData.map((item) => (
-    <div
-      key={item.id}
-      className="relative rounded-2xl overflow-hidden shadow-md group"
-    >
-      <img
-        src={item.image}
-        alt={item.alt}
-        className="w-full h-[260px] object-cover"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-      <div className="absolute bottom-0 left-0 p-4 text-white">
-        <p className="font-poppins text-[10px] uppercase tracking-[0.25em] text-white/80 mb-1">
-          {item.tag}
+        <p className="mt-4 font-poppins text-sm leading-7 text-secondary/85 md:text-base">
+          We combine structured teaching with genuine care so every learner
+          feels seen, supported, and encouraged to succeed.
         </p>
-
-        <h3 className="font-semibold text-sm md:text-base">
-          {item.title}
-        </h3>
       </div>
-    </div>
-  ))}
-</div>
-            </AnimatedSection>
+    </AnimatedSection>
+
+
+
+  <AnimatedSection>
+  <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {reasons.slice(0, 4).map((reason, index) => (
+      <div
+        key={index}
+        className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
+      >
+        <span className="font-zuume text-3xl leading-none text-secondary/20">
+          {index < 9 ? "0" : ""}
+          {index + 1}
+        </span>
+
+        <h3 className="mt-3 font-poppins text-sm font-semibold text-secondary md:text-base">
+          {reason.title}
+        </h3>
+
+        <p className="mt-2 font-poppins text-sm leading-6 text-secondary/75">
+          {reason.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</AnimatedSection>
+
+
+
+    <AnimatedSection>
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {galleryData.map((item) => (
+          <div
+            key={item.id}
+            className="group relative overflow-hidden rounded-[20px] shadow-sm"
+          >
+            <img
+              src={item.image}
+              alt={item.alt}
+              className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+
+            <div className="absolute bottom-0 left-0 p-4 text-white">
+              <p className="mb-1 font-poppins text-[10px] uppercase tracking-[0.22em] text-white/75">
+                {item.tag}
+              </p>
+
+              <h3 className="font-poppins text-sm font-medium md:text-base">
+                {item.title}
+              </h3>
+            </div>
           </div>
-        </section>
+        ))}
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
 
         {/* MISSION */}
-        <section
+         <section
           id="mission"
-          className="bg-white py-16 md:py-24 px-5 md:px-8 relative overflow-hidden"
+          className="relative overflow-hidden bg-white px-5 py-16 md:px-8 md:py-24"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-[#f8fbfd] via-white to-[#eef6fb]" />
-          <div className="relative max-w-5xl mx-auto text-center">
+
+          <div className="relative mx-auto max-w-5xl text-center">
             <AnimatedSection>
-              <p className="font-poppins uppercase tracking-[0.3em] text-xs md:text-sm text-secondary/70 mb-4">
+              <p className="mb-4 font-poppins text-xs uppercase tracking-[0.3em] text-secondary/70 md:text-sm">
                 Our Purpose
               </p>
-              <h1 className="text-secondary raleway-black text-4xl md:text-6xl tracking-wider">
-                OUR MISSION
-              </h1>
+
+              <h2 className="font-zuume text-4xl text-secondary md:text-6xl">
+                Our Mission
+              </h2>
             </AnimatedSection>
 
             <AnimatedSection>
-              <div className="mt-8 md:mt-12 bg-secondary text-white rounded-[2rem] px-7 py-10 md:px-14 md:py-14 shadow-xl relative overflow-hidden">
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10" />
-                <div className="absolute -bottom-12 -left-12 w-44 h-44 rounded-full bg-white/10" />
+              <div className="relative mt-8 overflow-hidden rounded-[32px] bg-secondary px-7 py-10 text-white shadow-[0_20px_60px_rgba(15,14,53,0.14)] md:mt-12 md:px-14 md:py-14">
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
+                <div className="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-white/10" />
 
-                <p className="relative font-poppins text-sm md:text-lg leading-7 md:leading-9 max-w-3xl mx-auto">
-                  Our mission is to provide supportive, disciplined learning
-                  environments for learners who need academic guidance, renewed
-                  confidence, and a clear path toward better results. Through
-                  structured teaching, encouragement, and personal attention, we
-                  aim to help every learner unlock their potential.
+                <p className="relative mx-auto max-w-3xl font-poppins text-sm leading-7 text-white/90 md:text-lg md:leading-9">
+                  Our mission is to provide a supportive and disciplined
+                  learning environment for learners who need academic guidance,
+                  renewed confidence, and a clear path toward better results.
+                  Through structured teaching, encouragement, and personal
+                  attention, we help every learner unlock their potential.
                 </p>
               </div>
             </AnimatedSection>
@@ -329,17 +275,19 @@ export default function About() {
         </section>
 
         {/* TEAM */}
-        <section className="py-16 md:py-24 px-5 md:px-8">
-          <div className="max-w-6xl mx-auto">
+               <section className="px-5 py-16 md:px-8 md:py-24">
+          <div className="mx-auto max-w-6xl">
             <AnimatedSection>
-              <div className="text-center max-w-3xl mx-auto">
-                <p className="font-poppins uppercase tracking-[0.3em] text-xs md:text-sm text-secondary/70 mb-4">
-                  The People Behind the Vision
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-4 font-poppins text-xs uppercase tracking-[0.3em] text-secondary/70 md:text-sm">
+                  The People Behind The Vision
                 </p>
-                <h1 className="text-secondary raleway-black text-4xl md:text-6xl tracking-wider">
-                  MEET OUR TEAM
-                </h1>
-                <p className="mt-5 font-poppins text-sm md:text-lg leading-7 text-secondary/85">
+
+                <h2 className="font-zuume text-4xl text-secondary md:text-6xl">
+                  Meet Our Team
+                </h2>
+
+                <p className="mt-5 font-poppins text-sm leading-7 text-secondary/85 md:text-lg">
                   At Buhle Learning Center, we are committed to creating a
                   learning space where students feel supported, challenged, and
                   encouraged to reach their goals.
@@ -347,43 +295,40 @@ export default function About() {
               </div>
             </AnimatedSection>
 
+            <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-3">
+              {tutors.map((tutor, index) => (
+                <AnimatedSection key={index}>
+                  <div className="group rounded-[28px] border border-slate-100 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] md:p-5">
+                    <div className="relative overflow-hidden rounded-[22px]">
+                      <img
+                        src={tutor.image}
+                        alt={tutor.name}
+                        className="h-[340px] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                      />
 
-<div className="grid md:grid-cols-3 gap-8 mt-12 md:mt-16">
-  {tutors.map((tutor, index) => (
-    <AnimatedSection key={index}>
-      <div className="group bg-white rounded-[28px] p-4 md:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] duration-500">
-        <div className="relative overflow-hidden rounded-[22px]">
-          <img
-            src={tutor.image}
-            alt={tutor.name}
-            className="w-full h-[340px] object-cover group-hover:scale-[1.04] duration-700"
-          />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+                    </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
-        </div>
+                    <div className="pb-2 pt-6 text-center">
+                      <div className="mx-auto mb-4 h-[3px] w-12 rounded-full bg-secondary/80 transition duration-300 group-hover:w-16" />
 
-        <div className="pt-6 pb-2 text-center">
-          <div className="w-12 h-[3px] bg-secondary/80 mx-auto rounded-full mb-4 group-hover:w-16 duration-300"></div>
+                      <h3 className="font-poppins text-xl font-semibold tracking-tight text-secondary">
+                        {tutor.name}
+                      </h3>
 
-          <h3 className="font-poppins font-semibold text-xl text-secondary tracking-tight">
-            {tutor.name}
-          </h3>
+                      <p className="mt-2 font-poppins text-sm tracking-wide text-secondary/65">
+                        {tutor.role}
+                      </p>
 
-          <p className="font-poppins text-sm text-secondary/65 mt-2 tracking-wide">
-            {tutor.role}
-          </p>
-
-          <p className="font-poppins text-sm leading-6 text-slate-500 mt-4 px-2">
-            Dedicated to supporting learners with focused guidance,
-            encouragement, and a commitment to academic growth.
-          </p>
-        </div>
-      </div>
-    </AnimatedSection>
-  ))}
-</div>
-
-
+                      <p className="mt-4 px-2 font-poppins text-sm leading-6 text-slate-500">
+                        Dedicated to supporting learners with focused guidance,
+                        encouragement, and a commitment to academic growth.
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -434,31 +379,38 @@ export default function About() {
 </section>
 
         {/* MAP */}
-        <section className="bg-white py-16 md:py-24 px-5 md:px-8">
-          <div className="max-w-6xl mx-auto">
+     <section className="bg-white px-5 py-16 md:px-8 md:py-24">
+          <div className="mx-auto max-w-6xl">
             <AnimatedSection>
-              <div className="text-center mb-8 md:mb-12">
-                <p className="font-poppins uppercase tracking-[0.3em] text-xs md:text-sm text-secondary/70 mb-4">
+              <div className="mb-8 text-center md:mb-12">
+                <p className="mb-4 font-poppins text-xs uppercase tracking-[0.3em] text-secondary/70 md:text-sm">
                   Visit Us
                 </p>
-                <h1 className="text-secondary raleway-black text-4xl md:text-6xl tracking-wider">
-                  <a
-                    href={directionLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:opacity-80 duration-300"
-                  >
-                    GET DIRECTION
-                  </a>
-                </h1>
+
+                <h2 className="font-zuume text-4xl text-secondary md:text-6xl">
+                  Find Us
+                </h2>
+
+                <p className="mx-auto mt-4 max-w-2xl font-poppins text-sm leading-7 text-slate-600 md:text-base">
+                  Visit our learning centre and get directions to our location.
+                </p>
+
+                <a
+                  href={directionLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center justify-center rounded-full bg-secondary px-6 py-2.5 font-poppins text-sm font-medium text-white transition hover:opacity-90"
+                >
+                  Get Directions
+                </a>
               </div>
             </AnimatedSection>
 
             <AnimatedSection>
-              <div className="rounded-[2rem] overflow-hidden shadow-lg border border-slate-200">
+              <div className="overflow-hidden rounded-[30px] border border-slate-200 shadow-[0_16px_45px_rgba(15,23,42,0.08)]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233507.58717233775!2d18.3186299!3d-33.9142682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c0f6b4f8b47%3A0x1234567890abcdef!2sCape%20Town!5e0!3m2!1sen!2sza!4v1741689448996!5m2!1sen!2sza"
-                  className="w-full h-[420px] md:h-[520px]"
+                  src="https://maps.google.com/maps?q=Kamhlushwa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  className="h-[420px] w-full md:h-[520px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Map"
