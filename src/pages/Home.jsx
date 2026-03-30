@@ -540,26 +540,46 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
 
 
-<section className="py-20 bg-secondary text-white text-center">
-  <div className="container mx-auto px-4 max-w-2xl">
-    <h2 className="font-zuume text-4xl md:text-5xl">
-      Ready to Help Your Child Succeed?
-    </h2>
+<section className="relative overflow-hidden bg-secondary py-20 text-white md:py-24">
+  {/* background accents */}
+  <div className="absolute left-[-60px] top-[-40px] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+  <div className="absolute right-[-80px] bottom-[-50px] h-64 w-64 rounded-full bg-white/10 blur-3xl" />
 
-    <p className="mt-4 font-poppins text-white/80">
-      Join Nkomazi Finishing School Academy today and give your child the academic support they deserve.
-    </p>
+  <div className="container relative z-10 mx-auto px-4">
+    <div className="mx-auto max-w-3xl text-center">
+      <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 font-poppins text-[11px] uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm md:text-xs">
+        Admissions Open
+      </span>
 
-    <div className="mt-8">
-      <Link
-        to="/admissions"
-        className="bg-white text-secondary px-8 py-3 rounded-lg font-poppins hover:opacity-90 transition"
-      >
-        Apply Now
-      </Link>
+      <h2 className="mt-5 font-zuume text-[2.8rem] leading-[0.95] text-white md:text-[4.5rem]">
+        Ready to Help Your
+        <br />
+        Child Succeed?
+      </h2>
+
+      <p className="mx-auto mt-5 max-w-2xl font-poppins text-sm leading-7 text-white/80 md:text-base md:leading-8">
+        Join Nkomazi Finishing School Academy today and give your child the
+        academic support, structure, and encouragement they deserve.
+      </p>
+
+      <div className="mt-8 flex justify-center">
+        <Link
+          to="/admissions"
+          className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 font-poppins text-sm font-medium text-secondary shadow-lg transition duration-300 hover:scale-[1.02] hover:opacity-95 md:text-base"
+        >
+          Apply Now
+        </Link>
+      </div>
+
+      <p className="mt-4 font-poppins text-xs text-white/65 md:text-sm">
+        Start your admission enquiry and learn more about our academic support programmes.
+      </p>
     </div>
   </div>
 </section>
+
+
+
 
 <section
   className="relative py-24 bg-cover bg-center bg-no-repeat bg-fixed"
@@ -658,42 +678,49 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
     
 
-   <section className="bg-secondary py-20">
-  <div className="container mx-auto px-4">
+ <section className="relative overflow-hidden bg-secondary py-20 md:py-24">
+  {/* background accents */}
+  <div className="absolute left-[-70px] top-[30px] h-52 w-52 rounded-full bg-white/10 blur-3xl" />
+  <div className="absolute right-[-80px] bottom-[20px] h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+
+  <div className="container relative z-10 mx-auto px-4">
     <AnimatedSection>
       <div className="mx-auto max-w-3xl text-center">
         <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-white/70">
           Need Help?
         </p>
-        <h2 className="mt-3 font-zuume text-5xl md:text-6xl text-white">
+
+        <h2 className="mt-3 font-zuume text-4xl text-white md:text-5xl">
           Frequently Asked Questions
         </h2>
-        <p className="mt-4 font-poppins text-sm md:text-base text-white/75">
-          Everything you may want to know about our lessons, support, and how learners grow with Nkomazi Finishing School Academy.
+
+        <p className="mt-4 font-poppins text-sm leading-relaxed text-white/75 md:text-base">
+          Everything you may want to know about our lessons, support, and how
+          learners grow with Nkomazi Finishing School Academy.
         </p>
       </div>
     </AnimatedSection>
 
     <div className="mx-auto mt-12 max-w-4xl space-y-4">
       {faqs.map((faq, index) => {
-        const isOpen = openIndex === index;
+        const isOpen = openIndex === index
 
         return (
           <AnimatedSection key={index}>
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition duration-300 hover:bg-white/10">
+            <div className="overflow-hidden rounded-[22px] border border-white/12 bg-white/6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur-sm transition duration-300 hover:bg-white/10">
               <button
                 type="button"
                 onClick={() => toggleFAQ(index)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6"
                 aria-expanded={isOpen}
               >
-                <span className="font-poppins text-sm md:text-base font-semibold text-white pr-4">
+                <span className="pr-4 font-poppins text-sm font-semibold text-white md:text-base">
                   {faq.question}
                 </span>
 
                 <span
-                  className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white text-xl leading-none transition-transform duration-300 ${
-                    isOpen ? "rotate-45" : "rotate-0"
+                  className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg leading-none text-white transition-transform duration-300 ${
+                    isOpen ? 'rotate-45' : 'rotate-0'
                   }`}
                 >
                   +
@@ -702,12 +729,14 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
               <div
                 className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  isOpen
+                    ? 'grid-rows-[1fr] opacity-100'
+                    : 'grid-rows-[0fr] opacity-0'
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="px-5 pb-5 md:px-6 md:pb-6">
-                    <p className="font-poppins text-sm md:text-[15px] leading-7 text-white/75">
+                  <div className="border-t border-white/10 px-5 pb-5 pt-4 md:px-6 md:pb-6">
+                    <p className="font-poppins text-sm leading-7 text-white/75 md:text-[15px]">
                       {faq.answer}
                     </p>
                   </div>
@@ -715,7 +744,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
               </div>
             </div>
           </AnimatedSection>
-        );
+        )
       })}
     </div>
   </div>
