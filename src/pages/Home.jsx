@@ -237,59 +237,71 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   </div>
 </section>
 
+<section className="relative overflow-hidden bg-white py-20 md:py-28">
+  <div className="absolute left-[-80px] top-[60px] h-56 w-56 rounded-full bg-secondary/5 blur-3xl" />
+  <div className="absolute right-[-80px] bottom-[40px] h-64 w-64 rounded-full bg-[#9DCAEB]/20 blur-3xl" />
 
- <section className="relative overflow-hidden bg-white py-20 md:py-28">
-        <div className="container mx-auto grid items-center gap-12 px-4 md:grid-cols-2">
-          <AnimatedSection>
-            <div className="max-w-xl">
-              <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
-                About Us
-              </p>
+  <div className="container relative z-10 mx-auto grid items-center gap-12 px-4 md:grid-cols-2 md:gap-16">
+    <AnimatedSection>
+      <div className="max-w-xl">
+        <p className="font-poppins text-sm font-medium uppercase tracking-[0.2em] text-secondary/70">
+          About Us
+        </p>
 
-              <h1 className="mt-3 font-zuume text-5xl md:text-6xl text-secondary leading-none">
-                Building Confidence.
-                <br />
-                Improving Results.
-              </h1>
+        <h2 className="mt-3 font-zuume text-[2.8rem] leading-[0.95] text-secondary md:text-[4.5rem]">
+          Building Confidence.
+          <br />
+          Improving Results.
+        </h2>
 
-              <p className="mt-6 font-poppins text-sm leading-7 text-slate-600 md:text-base">
-                At Buhle Learning Center, our mission is to create a supportive
-                and disciplined learning environment where learners can grow
-                academically, rebuild confidence, and work toward a stronger
-                future. We combine structured teaching with genuine care so
-                every learner feels seen, supported, and encouraged to succeed.
-              </p>
+        <p className="mt-6 max-w-lg font-poppins text-sm leading-7 text-slate-600 md:text-base md:leading-8">
+          At Buhle Learning Center, our mission is to create a supportive and
+          disciplined learning environment where learners can grow academically,
+          rebuild confidence, and work toward a stronger future. We combine
+          structured teaching with genuine care so every learner feels seen,
+          supported, and encouraged to succeed.
+        </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  to="/admissions"
-                  className="inline-flex items-center justify-center rounded-lg bg-secondary px-6 py-3 font-poppins text-sm font-medium text-white transition hover:opacity-90"
-                >
-                  Apply Now
-                </Link>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link
+            to="/admissions"
+            className="inline-flex items-center justify-center rounded-xl bg-secondary px-6 py-3 font-poppins text-sm font-medium text-white transition hover:opacity-90"
+          >
+            Apply Now
+          </Link>
 
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-lg border border-secondary px-6 py-3 font-poppins text-sm font-medium text-secondary transition hover:bg-secondary hover:text-white"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection>
-            <div className="relative">
-              <img
-                src={whoImg}
-                alt="Learners in class"
-                className="h-[420px] w-full rounded-[28px] object-cover shadow-[0_20px_60px_rgba(15,14,53,0.10)]"
-              />
-              <div className="absolute inset-0 rounded-[28px] bg-gradient-to-t from-black/15 to-transparent" />
-            </div>
-          </AnimatedSection>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 font-poppins text-sm font-medium text-secondary transition hover:border-secondary hover:bg-secondary hover:text-white"
+          >
+            Contact Us
+          </Link>
         </div>
-      </section>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection>
+      <div className="relative mx-auto w-full max-w-[560px]">
+        <div className="absolute -left-4 -top-4 h-full w-full rounded-[28px] border border-slate-200 bg-slate-50" />
+
+        <img
+          src={whoImg}
+          alt="Learners in class"
+          className="relative z-10 h-[420px] w-full rounded-[28px] object-cover shadow-[0_20px_60px_rgba(15,14,53,0.10)]"
+        />
+
+        <div className="absolute inset-0 z-20 rounded-[28px] bg-gradient-to-t from-black/15 to-transparent" />
+
+        <div className="absolute bottom-5 left-5 z-30 rounded-2xl border border-white/20 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-sm">
+          <p className="font-zuume text-2xl leading-none text-secondary">Supportive Learning</p>
+          <p className="mt-1 font-poppins text-xs text-slate-600">
+            Focused guidance in a disciplined environment
+          </p>
+        </div>
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
 
 
 
