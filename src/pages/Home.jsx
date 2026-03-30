@@ -293,130 +293,138 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
 
 
-
-<section className="py-24 bg-grey">
-
-  
-
-
-  
+<section className="bg-grey py-20 md:py-24">
   <div className="container mx-auto px-4">
     {/* Heading */}
     <AnimatedSection>
-    <div className="text-center max-w-3xl mx-auto">
-      <p className="font-poppins text-sm uppercase tracking-[0.2em] text-secondary/70">
-        Our Educational Services
-      </p>
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="font-poppins text-sm uppercase tracking-[0.2em] text-secondary/70">
+          Our Educational Services
+        </p>
 
-      <h2 className="mt-3 font-zuume text-4xl md:text-5xl text-secondary">
-        What We Offer
-      </h2>
+        <h2 className="mt-3 font-zuume text-4xl text-secondary md:text-5xl">
+          What We Offer
+        </h2>
 
-      <p className="mt-4 text-slate-600 font-poppins text-sm md:text-base leading-relaxed">
-        Discover our range of educational services designed to foster learning,
-        spirituality, and personal growth.
-      </p>
-    </div>
-
+        <p className="mt-4 font-poppins text-sm leading-relaxed text-slate-600 md:text-base">
+          Explore our academic programmes, student activities, and school
+          updates designed to support growth, discipline, and well-rounded
+          development.
+        </p>
+      </div>
     </AnimatedSection>
 
     {/* Layout */}
-    <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
-    <AnimatedSection>
-      {/* LEFT (smaller) */}
-      <div className="grid gap-5">
-        {[
-          {
-            number: "01",
-            title: "Academic Programs",
-            image: hero2,
-            button: "Explore Programmes",
-            href: "/academic-programs",
-          },
-          {
-            number: "02",
-            title: "Sports And Extracurricular Activities",
-            image: activities,
-            button: "View Activities",
-            href: "/sports-and-extracurricular",
-          },
-        ].map((card, i) => (
-          <div
-            key={i}
-            className="group relative h-[320px] overflow-hidden rounded-[20px] bg-black shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <img
-              src={card.image}
-              alt={card.title}
-              className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
-            />
+    <div className="mt-14 grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
+      {/* LEFT */}
+      <AnimatedSection>
+        <div className="grid gap-5">
+          {[
+            {
+              number: "01",
+              title: "Academic Programmes",
+              image: hero2,
+              button: "Explore Programmes",
+              href: "/academic-programs",
+            },
+            {
+              number: "02",
+              title: "Sports And Extracurricular Activities",
+              image: activities,
+              button: "View Activities",
+              href: "/sports-and-extracurricular",
+            },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="group relative h-[300px] overflow-hidden rounded-[22px] bg-black shadow-[0_10px_35px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.16)] md:h-[320px]"
+            >
+              <img
+                src={card.image}
+                alt={card.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
 
-            <div className="absolute inset-0 bg-black/35 transition-all duration-500 group-hover:bg-black/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+              <div className="absolute inset-0 bg-black/35 transition-all duration-500 group-hover:bg-black/45" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
-            <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
-              <span className="stroke-white-40 group-hover:stroke-white-70 absolute left-6 top-6 text-5xl font-bold text-transparent transition-all duration-500 md:text-6xl">
-                {card.number}
-              </span>
+              <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
+                <span className="absolute left-6 top-5 font-raleway text-5xl font-bold leading-none text-white/40 transition-all duration-500 group-hover:text-white/20 md:text-6xl">
+                  {card.number}
+                </span>
 
-              <h3 className="max-w-[220px] font-zuume text-3xl leading-tight text-white">
-                {card.title}
+                <h3 className="max-w-[260px] font-zuume text-3xl leading-tight text-white md:text-[2.1rem]">
+                  {card.title}
+                </h3>
+
+                <a
+                  href={card.href}
+                  className="mt-5 inline-flex w-fit items-center rounded-full border border-white/20 bg-white px-5 py-2.5 font-poppins text-sm font-medium text-secondary shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary hover:text-white"
+                >
+                  {card.button}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </AnimatedSection>
+
+      {/* RIGHT */}
+      <AnimatedSection>
+        <div className="relative h-[625px] overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_10px_35px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.14)] md:h-[645px]">
+          {/* Top content */}
+          <div className="relative z-20 flex items-start justify-between gap-4 border-b border-slate-100 px-5 py-5 md:px-6">
+            <div>
+              <div className="inline-flex items-center rounded-full bg-secondary px-4 py-2 shadow-sm">
+                <span className="font-poppins text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+                  Notice Board
+                </span>
+              </div>
+
+              <h3 className="mt-4 font-zuume text-3xl leading-tight text-secondary md:text-[2.4rem]">
+                Latest Notices
+                <br />
+                & Updates
               </h3>
 
-              <a
-                href={card.href}
-                className="mt-5 inline-flex w-fit items-center rounded-full border border-white/20 bg-white px-5 py-2.5 font-poppins text-sm font-medium text-secondary shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary hover:text-white"
-              >
-                {card.button}
-              </a>
+              <p className="mt-3 max-w-md font-poppins text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                Stay informed with the latest school announcements, important
+                dates, and official updates for students and parents.
+              </p>
+            </div>
+
+            <div className="shrink-0 rounded-full bg-red-500 px-3 py-1 shadow-sm">
+              <span className="font-poppins text-[10px] font-semibold uppercase tracking-wider text-white">
+                New
+              </span>
             </div>
           </div>
-        ))}
-      </div>
 
-      </AnimatedSection>
- <AnimatedSection>
-      {/* RIGHT (Notice Board) */}
-      <div className="relative h-[660px] overflow-hidden rounded-[20px] border border-border bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl">
-        {/* Notice board banner */}
-        <div className="absolute left-5 top-5 z-20 inline-flex items-center rounded-full bg-secondary px-4 py-2 shadow-lg">
-          <span className="font-poppins text-xs font-semibold uppercase tracking-[0.18em] text-white">
-            Notice Board
-          </span>
+          {/* Poster / image */}
+          <div className="relative z-10 px-5 pb-24 pt-5 md:px-6">
+            <div className="h-[420px] overflow-hidden rounded-[18px] bg-slate-100 ring-1 ring-slate-200 md:h-[440px]">
+              <img
+                src={notice}
+                alt="School notice board poster"
+                className="h-full w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.02]"
+              />
+            </div>
+          </div>
+
+          {/* Bottom action */}
+          <div className="absolute bottom-5 left-5 z-20 md:left-6">
+            <a
+              href="/notices"
+              className="inline-flex items-center rounded-full bg-secondary px-5 py-2.5 font-poppins text-sm font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary/90"
+            >
+              View All Notices
+            </a>
+          </div>
         </div>
-
-        {/* Optional pinned badge */}
-        <div className="absolute right-5 top-5 z-20 rounded-full bg-red-500 px-3 py-1 shadow-md">
-          <span className="font-poppins text-[10px] font-semibold uppercase tracking-wider text-white">
-            New
-          </span>
-        </div>
-
-        {/* Poster / notice image */}
-        <div className="relative flex h-full items-center justify-center bg-slate-100 p-5 md:p-6">
-          <img
-            src={notice}
-            alt="School Notice Board Poster"
-            className="h-full w-full rounded-[14px] object-contain transition-all duration-700 ease-out hover:scale-[1.01]"
-          />
-        </div>
-
-        {/* Bottom action area */}
-        <div className="absolute bottom-5 left-5 z-20">
-          <a
-            href="/notices"
-            className="inline-flex items-center rounded-full bg-secondary px-5 py-2.5 font-poppins text-sm font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary/90"
-          >
-            View All Notices
-          </a>
-        </div>
-      </div>
-
       </AnimatedSection>
     </div>
   </div>
 </section>
-
 
 
 <section className="bg-white py-24">
