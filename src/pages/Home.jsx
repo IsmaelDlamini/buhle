@@ -201,37 +201,41 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       </div>
 
 
-<section className="relative -mt-16 z-20 px-4">
-      <div className="container mx-auto">
-        <div className="rounded-3xl bg-white/95 backdrop-blur-sm shadow-md border border-slate-200 overflow-hidden">
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`group relative p-4 text-center transition-all duration-300 hover:bg-slate-50 ${
-                  index !== stats.length - 1
-                    ? "border-b sm:border-b-0 lg:border-r border-slate-100"
-                    : ""
-                } ${index === 0 ? "sm:border-r" : ""} ${
-                  index === 1 ? "lg:border-r sm:border-r-0" : ""
-                }`}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<section className="relative -mt-10 md:-mt-14 z-20 px-4">
+  <div className="container mx-auto">
+    <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white/95 shadow-[0_12px_40px_rgba(15,23,42,0.08)] backdrop-blur-sm">
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {stats.map((stat, index) => (
+          <div
+            key={index}
+            className={`
+              group relative p-5 md:p-6 text-center transition-all duration-300
+              hover:bg-slate-50 hover:-translate-y-1
+              ${index < stats.length - 1 ? "border-b lg:border-b-0" : ""}
+              ${index % 2 === 0 ? "border-r border-slate-100 lg:border-r" : ""}
+              ${index < 2 ? "lg:border-b-0" : ""}
+              ${index !== stats.length - 1 ? "border-slate-100" : ""}
+            `}
+          >
+            <div className="absolute left-0 top-0 h-1 w-full bg-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <div className="text-3xl md:text-3xl font-bold text-secondary font-raleway tracking-tight">
-                  {stat.prefix ? stat.prefix : ""}
-                  <CountUp end={stat.value} suffix={stat.suffix || stat.noCountSuffix || ""} />
-                </div>
+            <div className="font-raleway text-[1.9rem] leading-none tracking-tight text-secondary md:text-[2.2rem]">
+              {stat.prefix ? stat.prefix : ""}
+              <CountUp
+                end={stat.value}
+                suffix={stat.suffix || stat.noCountSuffix || ""}
+              />
+            </div>
 
-                <p className="text-sm md:text-base text-slate-600 font-poppins mt-3">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            <p className="mt-3 font-poppins text-sm text-slate-600 md:text-[15px]">
+              {stat.label}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 
  <section className="relative overflow-hidden bg-white py-20 md:py-28">
