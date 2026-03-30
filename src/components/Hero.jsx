@@ -1,124 +1,84 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import hero1 from '../assets/hero-1.jpg'
-import hero2 from '../assets/hero-2.jpg'
-import hero3 from '../assets/hero-3.jpg'
-import hero4 from '../assets/hero-4.jpg'
-import hero5 from '../assets/hero-5.jpg'
-import site_logo from "../assets/site_logo.png"
 
 export default function Hero() {
-  const slides = [hero1, hero2, hero3, hero4, hero5]
-  const [current, setCurrent] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const timerRef = useRef(null)
-
-  useEffect(() => {
-    if (!isPlaying) return
-    timerRef.current = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 5000)
-    return () => clearInterval(timerRef.current)
-  }, [isPlaying, slides.length])
-
-  const goTo = (i) => {
-    setCurrent(i)
-    setIsPlaying(false)
-  }
-
-  const prev = () => {
-    setCurrent((c) => (c - 1 + slides.length) % slides.length)
-    setIsPlaying(false)
-  }
-
-  const next = () => {
-    setCurrent((c) => (c + 1) % slides.length)
-    setIsPlaying(false)
-  }
-
   return (
-  <section className="relative h-[70vh] md:h-[85vh] overflow-hidden">
-
-    {/* Slides */}
-    {slides.map((src, i) => (
+    <section className="relative min-h-[760px] md:min-h-[860px] overflow-hidden">
+      {/* Background image */}
       <img
-        key={i}
-        src={src}
-        alt={`slide-${i}`}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity object-top duration-1000 ${
-          i === current ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        src={hero1}
+        alt="Students learning in a supportive academic environment"
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
-    ))}
 
-    {/* Dark overlay */}
-    <div className="absolute inset-0 bg-black/50 z-10" />
+      {/* Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
 
-    {/* Top navigation area */}
-    <div className="absolute top-0 left-0 w-full z-30">
-      {/* <div className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src={site_logo}
-            alt="Site logo"
-            className="w-20 md:w-24 object-contain"
-          />
-        </Link>
+      {/* Soft glow accents */}
+      <div className="absolute left-1/2 top-[18%] z-10 h-40 w-40 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute bottom-[18%] left-1/2 z-10 h-52 w-52 -translate-x-1/2 rounded-full bg-secondary/20 blur-3xl" />
 
-        <Link
-          to="/admissions"
-          className="hidden md:inline-flex bg-white text-secondary px-5 py-2 rounded-md font-poppins text-sm hover:opacity-90 transition"
-        >
-          Apply Now
-        </Link>
-      </div> */}
-    </div>
+      {/* Content */}
+      <div className="relative z-20 flex min-h-[760px] items-center justify-center px-4 pb-32 pt-28 md:min-h-[860px] md:pb-40 md:pt-32">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 font-poppins text-[11px] uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm md:text-xs">
+            Academic Support • Mathematics • Exam Preparation
+          </span>
 
-    {/* Hero content */}
-    <div className="relative z-20 h-full flex items-center">
-      <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h1 className="mt-5 font-zuume text-[2.8rem] leading-[0.9] text-white sm:text-[3.4rem] md:text-[4.8rem]">
+            Empowering Learners
+            <br />
+            To Reach Their Potential
+          </h1>
 
-        <h1 className="font-zuume text-4xl md:text-6xl text-white leading-tight">
-          Empowering Learners <br /> To Reach Their Potential
-        </h1>
+          <p className="mx-auto mt-5 max-w-2xl font-poppins text-sm leading-7 text-white/85 md:text-base md:leading-8">
+            Structured academic support, experienced tutors, and focused exam
+            preparation designed to help students succeed in Mathematics and
+            other key subjects.
+          </p>
 
-        <p className="mt-6 text-white/90 font-poppins text-sm md:text-lg">
-          Structured academic support, experienced tutors, and focused exam
-          preparation designed to help students succeed in Mathematics and
-          other key subjects.
-        </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/admissions"
+              className="inline-flex min-w-[150px] items-center justify-center rounded-xl bg-secondary px-6 py-3 font-poppins text-sm text-white transition hover:opacity-90 md:text-base"
+            >
+              Apply Now
+            </Link>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/about"
+              className="inline-flex min-w-[150px] items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3 font-poppins text-sm text-white backdrop-blur-sm transition hover:bg-white hover:text-secondary md:text-base"
+            >
+              Learn More
+            </Link>
+          </div>
 
-          <Link
-            to="/admissions"
-            className="bg-secondary px-7 py-3 text-white rounded-lg font-poppins hover:opacity-90 transition"
-          >
-            Apply Now
-          </Link>
+          {/* Smaller centered trust points */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md">
+              <p className="font-poppins text-xs text-white/85 md:text-sm">
+                Experienced Tutors
+              </p>
+            </div>
 
-          <Link
-            to="/about"
-            className="border border-white text-white px-7 py-3 rounded-lg font-poppins hover:bg-white hover:text-secondary transition"
-          >
-            Learn More
-          </Link>
+            <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md">
+              <p className="font-poppins text-xs text-white/85 md:text-sm">
+                Structured Academic Support
+              </p>
+            </div>
 
+            <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md">
+              <p className="font-poppins text-xs text-white/85 md:text-sm">
+                Focused Exam Preparation
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    {/* Slider dots */}
-    <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
-      {slides.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => goTo(i)}
-          className={`w-3 h-3 rounded-full transition ${
-            i === current ? "bg-white" : "bg-white/40"
-          }`}
-        />
-      ))}
-    </div>
-
-  </section>
-)
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-t from-black/35 to-transparent" />
+    </section>
+  )
 }
