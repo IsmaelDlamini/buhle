@@ -334,17 +334,17 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
           {[
             {
               number: "01",
-              title: "Academic Programmes",
+              title: "Subjects Offered",
               image: hero2,
-              button: "Explore Programmes",
-              href: "/academic-programs",
+              button: "View Subjects",
+              href: "/subjects",
             },
             {
               number: "02",
-              title: "Sports And Extracurricular Activities",
+              title: "Events & Activities",
               image: activities,
-              button: "View Activities",
-              href: "/sports-and-extracurricular",
+              button: "View Event Images",
+              href: "/gallery",
             },
           ].map((card, i) => (
             <div
@@ -369,12 +369,12 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
                   {card.title}
                 </h3>
 
-                <a
-                  href={card.href}
+                <Link
+                  to={card.href}
                   className="mt-5 inline-flex w-fit items-center rounded-full border border-white/20 bg-white px-5 py-2.5 font-poppins text-sm font-medium text-secondary shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary hover:text-white"
                 >
                   {card.button}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -425,12 +425,12 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
           {/* Bottom action */}
           <div className="absolute bottom-5 left-5 z-20 md:left-6">
-            <a
-              href="/notices"
+            <Link
+              to="/registration"
               className="inline-flex items-center rounded-full bg-secondary px-5 py-2.5 font-poppins text-sm font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.03] hover:bg-secondary/90"
             >
               View All Notices
-            </a>
+            </Link>
           </div>
         </div>
       </AnimatedSection>

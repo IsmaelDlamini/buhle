@@ -232,7 +232,7 @@ export default function Registration() {
         </section>
 
         {/* STEPS */}
-        <section className="bg-grey py-12 md:py-16">
+        {/* <section className="bg-grey py-12 md:py-16">
           <div className="container mx-auto px-5 md:px-8">
             <AnimatedSection>
               <div className="mx-auto max-w-3xl text-center">
@@ -271,7 +271,7 @@ export default function Registration() {
               </div>
             </AnimatedSection>
           </div>
-        </section>
+        </section> */}
 
         {/* SUBMISSION + CONTACT */}
         <section className="bg-white py-12 md:py-16">
@@ -344,7 +344,7 @@ export default function Registration() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="px-5 pb-12 md:px-8 md:pb-16">
+        {/* <section className="px-5 pb-12 md:px-8 md:pb-16">
           <AnimatedSection>
             <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0b2c3d] via-[#0f3d5c] to-[#184f73] px-6 py-10 text-center shadow-[0_12px_40px_rgba(11,44,61,0.25)] md:px-10 md:py-12">
               <div className="absolute -left-12 -top-12 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
@@ -389,7 +389,7 @@ export default function Registration() {
               </div>
             </div>
           </AnimatedSection>
-        </section>
+        </section> */}
       </main>
     </div>
   );
