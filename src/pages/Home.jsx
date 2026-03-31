@@ -180,7 +180,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
       {/* Hero wrapper: overflow-hidden so the right-side image is clipped; Hero content stays above */}
       <div className="relative overflow-hidden">
         {/* right-side image: full hero height, positioned above background but below hero content */}
-        <div
+        {/* <div
           className="absolute top-0 right-0 h-full w-1/2 max-w-[560px] pointer-events-none overflow-hidden animate-none"
           style={{ zIndex: 9, animation: 'none' }}
           aria-hidden="true"
@@ -193,7 +193,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
             className="w-full h-full object-cover"
             style={{ animation: 'none' }}
           />
-        </div>
+        </div> */}
 
         <div className="relative z-10">
           <Hero />

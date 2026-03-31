@@ -5,14 +5,32 @@ export default function WhatsAppButton({
   message = "Hi, I'd like to enquire about the matric rewrite programme.",
 }) {
   const [showTip, setShowTip] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem("wa_tip_dismissed");
-    if (!dismissed) {
-      const timer = setTimeout(() => setShowTip(true), 800);
-      return () => clearTimeout(timer);
-    }
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.5;
+      setIsVisible(window.scrollY > threshold);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isVisible) {
+      setShowTip(false);
+      return;
+    }
+
+    const dismissed = localStorage.getItem("wa_tip_dismissed");
+    if (dismissed) return;
+
+    const timer = setTimeout(() => setShowTip(true), 400);
+    return () => clearTimeout(timer);
+  }, [isVisible]);
 
   const encoded = encodeURIComponent(message);
   const href = `https://wa.me/${phone}?text=${encoded}`;
@@ -23,7 +41,13 @@ export default function WhatsAppButton({
   };
 
   return (
-    <div className="fixed bottom-5 right-4 z-50 flex items-end gap-3 md:bottom-6 md:right-6">
+    <div
+      className={`fixed bottom-5 right-4 z-50 flex items-end gap-3 transition-all duration-300 md:bottom-6 md:right-6 ${
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-6 opacity-0"
+      }`}
+    >
       {/* Popup tip */}
       {showTip && (
         <div className="relative max-w-[220px] rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.14)] animate-[fadeIn_.25s_ease-out]">
