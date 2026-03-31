@@ -40,7 +40,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
-              to="/admissions"
+              to="/registration"
               className="inline-flex min-w-[150px] items-center justify-center rounded-xl bg-secondary px-6 py-3 font-poppins text-sm text-white transition hover:opacity-90 md:text-base"
             >
               Apply Now

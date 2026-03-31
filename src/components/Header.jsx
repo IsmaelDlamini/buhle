@@ -26,6 +26,7 @@ export default function Header() {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/subjects", label: "Subjects" },
+    { to: "/gallery", label: "Gallery" },
     { to: "/contact", label: "Contact" },
   ];
 
@@ -66,7 +67,7 @@ export default function Header() {
 
         <div className="hidden md:flex">
           <Link
-            to="/admissions"
+            to="/registration"
             className="rounded-md bg-secondary px-5 py-2 font-poppins text-sm text-white transition hover:opacity-90"
           >
             Apply Now
@@ -152,7 +153,7 @@ export default function Header() {
                   className="pt-4"
                 >
                   <Link
-                    to="/admissions"
+                    to="/registration"
                     onClick={() => setOpen(false)}
                     className="inline-flex items-center justify-center rounded-full bg-secondary px-8 py-3 font-poppins text-base font-medium text-white transition hover:opacity-90"
                   >

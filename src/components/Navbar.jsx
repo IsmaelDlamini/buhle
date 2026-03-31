@@ -11,7 +11,8 @@ export default function Navbar() {
           <NavLink to="/about" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>About</NavLink>
           <NavLink to="/subjects" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Subjects</NavLink>
           <NavLink to="/programme" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Programme</NavLink>
-          <NavLink to="/admissions" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Admissions</NavLink>
+          <NavLink to="/gallery" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Gallery</NavLink>
+          <NavLink to="/registration" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Registration</NavLink>
           <NavLink to="/contact" className={({isActive}) => isActive ? 'text-blue-700 font-medium' : 'text-slate-700'}>Contact</NavLink>
         </nav>
       </div>

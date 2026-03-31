@@ -264,7 +264,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
-            to="/admissions"
+            to="/registration"
             className="inline-flex items-center justify-center rounded-xl bg-secondary px-6 py-3 font-poppins text-sm font-medium text-white transition hover:opacity-90"
           >
             Apply Now
@@ -564,7 +564,7 @@ const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
       <div className="mt-8 flex justify-center">
         <Link
-          to="/admissions"
+          to="/registration"
           className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 font-poppins text-sm font-medium text-secondary shadow-lg transition duration-300 hover:scale-[1.02] hover:opacity-95 md:text-base"
         >
           Apply Now

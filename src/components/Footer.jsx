@@ -65,6 +65,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/gallery" className="transition hover:text-secondary">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link to="/registration" className="transition hover:text-secondary">
+                  Registration
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="transition hover:text-secondary">
                   Contact Us
                 </Link>
