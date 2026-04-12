@@ -59,7 +59,7 @@ export default function Registration() {
     email: "info@buhlelearning.co.za",
     location: "Kamhlushwa, Dunusa, Nkomazi, Mpumalanga",
     officeNote: "You may email the completed form or submit it directly at the school office.",
-    formPdf: "/documents/buhle-registration-form.pdf",
+    formPdf: "/registration%20form.pdf",
   };
 
   return (

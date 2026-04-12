@@ -47,13 +47,31 @@ export default function Admissions(){
     setTouched({})
   }
 
-  const subjectList = ['Mathematics','Physical Sciences','Life Sciences','English','Geography','Accounting']
+  const subjectList = [
+    'Mathematics',
+    'Physical Sciences',
+    'Life Sciences',
+    'English',
+    'Geography',
+    'Accounting',
+    'Siswati',
+    'Agricultural Sciences',
+    'Business Studies',
+    'Economics',
+  ]
 
   return (
     <div className="container mx-auto px-4 py-12">
       <AnimatedSection>
         <h1 className="text-2xl font-semibold text-blue-800">Admissions — Apply Now</h1>
         <p className="mt-2 text-slate-600">Complete the form below to start your application for the one-year rewrite programme.</p>
+        <a
+          href="/registration%20form.pdf"
+          download
+          className="mt-4 inline-block rounded bg-blue-700 px-5 py-2 text-white transition hover:bg-blue-800"
+        >
+          Download Registration Form
+        </a>
       </AnimatedSection>
 
       <AnimatedSection className="mt-6">

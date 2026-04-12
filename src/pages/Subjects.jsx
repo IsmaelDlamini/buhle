@@ -123,6 +123,86 @@ const subjects = [
       </svg>
     ),
   },
+  {
+    title: "Siswati",
+    letter: "S",
+    desc: "We help learners strengthen reading, writing, grammar, and language confidence in Siswati through clear guidance and focused exam preparation.",
+    icon: (
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5 4.462 5 2 6.343 2 8v11c0-1.657 2.462-3 5.5-3 1.746 0 3.332.477 4.5 1.253m0-11C13.168 5.477 14.754 5 16.5 5 19.538 5 22 6.343 22 8v11c0-1.657-2.462-3-5.5-3-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Agricultural Sciences",
+    letter: "A",
+    desc: "Our Agricultural Sciences support combines theory, practical understanding, and revision strategies to help learners succeed with confidence.",
+    icon: (
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M7 21h10M12 3v18m0 0c0-3.314-2.686-6-6-6m6 6c0-3.314 2.686-6 6-6m-6-6c-2.21 0-4-1.79-4-4m4 4c2.21 0 4-1.79 4-4"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Business Studies",
+    letter: "B",
+    desc: "We guide learners through business concepts, case studies, and exam techniques so they can answer accurately and think critically.",
+    icon: (
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M3 21h18M5 21V8m14 13V8M9 21V12m6 9v-5M7 8h10l-1-4H8L7 8z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Economics",
+    letter: "E",
+    desc: "We make Economics easier to understand by breaking down key principles, graphs, and real-world applications in a structured way.",
+    icon: (
+      <svg
+        className="h-9 w-9"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M3 17l6-6 4 4 8-8M21 10V4h-6"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function Subjects() {
